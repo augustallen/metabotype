@@ -1,0 +1,3143 @@
+{
+  "version": 1,
+  "reviewed": "2026-09-11",
+  "review_note": "Source-checked introductory claims; original passages and scenarios. Learner difficulty calibration still needs playtesting.",
+  "topics": [
+    {
+      "id": "foundations",
+      "title": "The molecular world",
+      "subtitle": "Small molecules. Connected stories.",
+      "number": "01"
+    },
+    {
+      "id": "variation",
+      "title": "The context detectives",
+      "subtitle": "Find the clues behind the pattern.",
+      "number": "02"
+    }
+  ],
+  "sources": [
+    {
+      "id": "intro",
+      "title": "What is metabolomics?",
+      "url": "https://www.ebi.ac.uk/training/online/courses/metabolomics-introduction/what-is-metabolomics/",
+      "author": "Reza Salek, Stephen Beisken, Laura Emery / EMBL-EBI",
+      "license": "CC BY 4.0"
+    },
+    {
+      "id": "small",
+      "title": "Small molecules",
+      "url": "https://www.ebi.ac.uk/training/online/courses/metabolomics-introduction/what-is-metabolomics/small-molecules/",
+      "author": "EMBL-EBI Training",
+      "license": "CC BY 4.0"
+    },
+    {
+      "id": "dynamic",
+      "title": "The metabolome and metabolic reactions",
+      "url": "https://www.ebi.ac.uk/training/online/courses/metabolomics-introduction/the-metabolome-and-metabolic-reactions/",
+      "author": "EMBL-EBI Training",
+      "license": "CC BY 4.0"
+    },
+    {
+      "id": "design",
+      "title": "Design experiment",
+      "url": "https://www.ebi.ac.uk/training/online/courses/metabolomics-introduction/designing-a-metabolomics-study/design-experiment/",
+      "author": "EMBL-EBI Training",
+      "license": "CC BY 4.0"
+    },
+    {
+      "id": "barnes",
+      "title": "Training in metabolomics research I (2016), doi:10.1002/jms.3782",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4964969/",
+      "author": "Barnes et al.",
+      "license": "See source; original lesson wording"
+    }
+  ],
+  "passages": [
+    {
+      "id": "p-molecules",
+      "version": 1,
+      "title": "Small things, big clues",
+      "topic": "foundations",
+      "concepts": [
+        "molecules"
+      ],
+      "prerequisites": [],
+      "text": "A cell is busy with small molecules. Sugars, amino acids, and many lipids are examples of metabolites. These molecules can be ingredients, intermediate steps, or products of metabolism. Metabolomics studies many of them together. Think of a laboratory bench holding a collection of chemical clues. Each clue says something about the sample, but no single molecule tells the whole story of a living system.",
+      "sources": [
+        "small",
+        "intro"
+      ]
+    },
+    {
+      "id": "p-snapshot",
+      "version": 1,
+      "title": "A photograph, not a movie",
+      "topic": "foundations",
+      "concepts": [
+        "snapshot"
+      ],
+      "prerequisites": [],
+      "text": "The metabolome changes as a living system takes up, makes, and uses molecules. A sample captures conditions at a particular time. It is more like a photograph than a movie of every reaction. Two samples from the same system can therefore differ without either measurement being wrong. Recording when and how a sample was collected helps give that chemical photograph a useful setting for interpretation.",
+      "sources": [
+        "dynamic"
+      ]
+    },
+    {
+      "id": "p-pathways",
+      "version": 1,
+      "title": "Follow the handoff",
+      "topic": "foundations",
+      "concepts": [
+        "pathways"
+      ],
+      "prerequisites": [],
+      "text": "A metabolic pathway links chemical reactions. A product from one step can become a starting material for the next. Enzymes help these reactions take place. Picture a series of handoffs rather than a shelf of unrelated bottles. Measuring the amount of a molecule tells us what is present in the sample. By itself, that amount does not tell us the speed of every handoff in the pathway.",
+      "sources": [
+        "dynamic"
+      ]
+    },
+    {
+      "id": "p-metabolome",
+      "version": 1,
+      "title": "Meet the collection",
+      "topic": "foundations",
+      "concepts": [
+        "metabolome"
+      ],
+      "prerequisites": [],
+      "text": "The word metabolome names the collection of metabolites in a biological system at a given time. The system might be a cell, a tissue, or a biological sample. Metabolomics is the study of that collection. Naming the sample matters: a result from one tissue does not automatically describe every other tissue. Before interpreting a list of molecules, ask what was sampled and under which conditions it was collected.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "p-context",
+      "version": 1,
+      "title": "Genes meet the outside world",
+      "topic": "foundations",
+      "concepts": [
+        "context"
+      ],
+      "prerequisites": [],
+      "text": "Metabolite patterns reflect influences from both genes and the environment. Food and other exposures can contribute to the chemistry of a sample. A pattern is therefore not simply a readout of a DNA sequence. Imagine two plants with similar genes growing under different conditions. Their chemical profiles may differ. To understand a result, keep the biological setting beside the molecular measurements rather than treating either one as the whole explanation.",
+      "sources": [
+        "intro",
+        "barnes"
+      ]
+    },
+    {
+      "id": "p-diet",
+      "version": 1,
+      "title": "The lunch-shaped clue",
+      "topic": "variation",
+      "concepts": [
+        "diet"
+      ],
+      "prerequisites": [],
+      "text": "Food can leave clues in a metabolite profile. Diet affects what enters the body and can influence the molecules later found in a sample. If two groups eat differently, their chemical differences may partly reflect those meals. A careful study records relevant dietary information and uses consistent collection conditions where appropriate. This context helps researchers ask whether a pattern relates to the study question, to diet, or to a mixture of influences.",
+      "sources": [
+        "barnes",
+        "design"
+      ]
+    },
+    {
+      "id": "p-medication",
+      "version": 1,
+      "title": "Another entry in the notebook",
+      "topic": "variation",
+      "concepts": [
+        "medication"
+      ],
+      "prerequisites": [],
+      "text": "Medication use is part of a sample's context. Drugs and their breakdown products can appear in biological measurements, and treatments can also influence metabolism. A study should record relevant medication information when interpreting profiles. A difference between groups may reflect treatment as well as the condition being studied. Good notes help separate possible explanations. A laboratory pattern alone does not tell a person to start, stop, or change a medicine.",
+      "sources": [
+        "barnes"
+      ]
+    },
+    {
+      "id": "p-timing",
+      "version": 1,
+      "title": "Keep an eye on the clock",
+      "topic": "variation",
+      "concepts": [
+        "timing"
+      ],
+      "prerequisites": [],
+      "text": "Collection time is more than a label. Biological activity can vary across the day, so samples taken at different times may capture different states. A study that collects one group in the morning and another at night can mix time effects with group effects. Recording times and planning comparable collection schedules makes the comparison easier to interpret. The goal is to understand variation, not to assume every sample stays chemically frozen in time.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "p-people",
+      "version": 1,
+      "title": "Variation belongs in the story",
+      "topic": "variation",
+      "concepts": [
+        "people"
+      ],
+      "prerequisites": [],
+      "text": "People can differ in their biology and exposures. A metabolomics study needs a design that takes this variation seriously. Several independent participants provide information that repeated measurements of one person cannot replace. Repeating a measurement can help assess the measurement process, but it does not create a new participant. Clear records of who contributed each sample help researchers distinguish variation among people from variation in measuring the same material.",
+      "sources": [
+        "design",
+        "barnes"
+      ]
+    },
+    {
+      "id": "p-confounding",
+      "version": 1,
+      "title": "The competing explanation",
+      "topic": "variation",
+      "concepts": [
+        "confounding"
+      ],
+      "prerequisites": [],
+      "text": "A group difference is a clue, not a complete explanation. Suppose a study compares two groups that also differ in diet and collection time. Either factor might help explain a metabolite pattern. When another influence travels with the group label, it can make interpretation difficult. Careful design and relevant records help researchers examine these competing explanations. An observed association alone does not establish that the group label caused the chemical difference.",
+      "sources": [
+        "design",
+        "barnes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-molecules-1",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "molecules",
+      "level": 1,
+      "prerequisites": [
+        "molecules"
+      ],
+      "passages": [
+        "p-molecules"
+      ],
+      "prompt": "Which item is a metabolite?",
+      "correct": "a",
+      "explanation": "Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule.",
+      "sources": [
+        "small",
+        "intro"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "A sugar molecule",
+          "explanation": "Exactly. Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "b",
+          "text": "An entire chromosome",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "c",
+          "text": "A whole cell",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        }
+      ]
+    },
+    {
+      "id": "q-molecules-2",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "molecules",
+      "level": 1,
+      "prerequisites": [
+        "molecules"
+      ],
+      "passages": [
+        "p-molecules"
+      ],
+      "prompt": "What does metabolomics mainly study?",
+      "correct": "a",
+      "explanation": "Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule.",
+      "sources": [
+        "small",
+        "intro"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Small molecules in biological systems",
+          "explanation": "Exactly. Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "b",
+          "text": "Only proteins in biological systems",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "c",
+          "text": "Only inherited DNA variants",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        }
+      ]
+    },
+    {
+      "id": "q-molecules-3",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "molecules",
+      "level": 2,
+      "prerequisites": [
+        "molecules"
+      ],
+      "passages": [
+        "p-molecules"
+      ],
+      "prompt": "Why measure several metabolites together?",
+      "correct": "a",
+      "explanation": "Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule.",
+      "sources": [
+        "small",
+        "intro"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "They offer several clues about the sample",
+          "explanation": "Exactly. Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "b",
+          "text": "Every metabolite has the same role",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "c",
+          "text": "One measurement reveals every reaction",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        }
+      ]
+    },
+    {
+      "id": "q-molecules-4",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "molecules",
+      "level": 2,
+      "prerequisites": [
+        "molecules"
+      ],
+      "passages": [
+        "p-molecules"
+      ],
+      "prompt": "Why can an intermediate count as a metabolite?",
+      "correct": "a",
+      "explanation": "Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule.",
+      "sources": [
+        "small",
+        "intro"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "It participates between steps of metabolism",
+          "explanation": "Exactly. Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "b",
+          "text": "Only final waste products count",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "c",
+          "text": "Only molecules outside cells count",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        }
+      ]
+    },
+    {
+      "id": "q-molecules-5",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "molecules",
+      "level": 3,
+      "prerequisites": [
+        "molecules"
+      ],
+      "passages": [
+        "p-molecules"
+      ],
+      "prompt": "A lab measures sugars and amino acids in blood. Which field fits?",
+      "correct": "a",
+      "explanation": "Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule.",
+      "sources": [
+        "small",
+        "intro"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Metabolomics",
+          "explanation": "Exactly. Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "b",
+          "text": "Genome sequencing alone",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "c",
+          "text": "Protein sequencing alone",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        }
+      ]
+    },
+    {
+      "id": "q-molecules-6",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "molecules",
+      "level": 3,
+      "prerequisites": [
+        "molecules"
+      ],
+      "passages": [
+        "p-molecules"
+      ],
+      "prompt": "A reaction uses molecule A and makes small molecule B. Which can be metabolites?",
+      "correct": "a",
+      "explanation": "Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule.",
+      "sources": [
+        "small",
+        "intro"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Both A and B",
+          "explanation": "Exactly. Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "b",
+          "text": "Only B because it is produced",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "c",
+          "text": "Only A because it is consumed",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        }
+      ]
+    },
+    {
+      "id": "q-molecules-7",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "molecules",
+      "level": 4,
+      "prerequisites": [
+        "molecules"
+      ],
+      "passages": [
+        "p-molecules"
+      ],
+      "prompt": "A report uses one sugar level to claim it describes all metabolism. What is the limitation?",
+      "correct": "a",
+      "explanation": "Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule.",
+      "sources": [
+        "small",
+        "intro"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "One molecule provides only part of the picture",
+          "explanation": "Exactly. Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "b",
+          "text": "Sugars can never be metabolites",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "c",
+          "text": "Measuring more molecules always adds no information",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        }
+      ]
+    },
+    {
+      "id": "q-molecules-8",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "molecules",
+      "level": 4,
+      "prerequisites": [
+        "molecules"
+      ],
+      "passages": [
+        "p-molecules"
+      ],
+      "prompt": "A panel contains lipids and amino acids. What is the best conclusion?",
+      "correct": "a",
+      "explanation": "Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule.",
+      "sources": [
+        "small",
+        "intro"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "It samples several kinds of metabolites",
+          "explanation": "Exactly. Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "b",
+          "text": "It measures every molecule in the organism",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        },
+        {
+          "id": "c",
+          "text": "It is necessarily a DNA sequence",
+          "explanation": "Consider the distinction: Metabolites include small starting materials, intermediates, and products. Measuring several gives a broader view than a single molecule."
+        }
+      ]
+    },
+    {
+      "id": "q-snapshot-1",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "snapshot",
+      "level": 1,
+      "prerequisites": [
+        "snapshot"
+      ],
+      "passages": [
+        "p-snapshot"
+      ],
+      "prompt": "A metabolomics sample is most like what?",
+      "correct": "a",
+      "explanation": "Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "A snapshot under particular conditions",
+          "explanation": "Exactly. Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "b",
+          "text": "A permanent record of all future states",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "c",
+          "text": "A movie of every reaction",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        }
+      ]
+    },
+    {
+      "id": "q-snapshot-2",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "snapshot",
+      "level": 1,
+      "prerequisites": [
+        "snapshot"
+      ],
+      "passages": [
+        "p-snapshot"
+      ],
+      "prompt": "Is the metabolome fixed over time?",
+      "correct": "a",
+      "explanation": "Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "No, molecules are continually made and used",
+          "explanation": "Exactly. Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "b",
+          "text": "Yes, it never changes in a living system",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "c",
+          "text": "Only the sample label can change",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        }
+      ]
+    },
+    {
+      "id": "q-snapshot-3",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "snapshot",
+      "level": 2,
+      "prerequisites": [
+        "snapshot"
+      ],
+      "passages": [
+        "p-snapshot"
+      ],
+      "prompt": "Why might two samples from one system differ?",
+      "correct": "a",
+      "explanation": "Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The system can change between collections",
+          "explanation": "Exactly. Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "b",
+          "text": "One must always be a typing error",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "c",
+          "text": "Living systems contain no stable molecules",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        }
+      ]
+    },
+    {
+      "id": "q-snapshot-4",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "snapshot",
+      "level": 2,
+      "prerequisites": [
+        "snapshot"
+      ],
+      "passages": [
+        "p-snapshot"
+      ],
+      "prompt": "Why record collection time?",
+      "correct": "a",
+      "explanation": "Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "It helps interpret a changing chemical state",
+          "explanation": "Exactly. Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "b",
+          "text": "It makes all samples chemically identical",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "c",
+          "text": "It replaces measuring the sample",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        }
+      ]
+    },
+    {
+      "id": "q-snapshot-5",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "snapshot",
+      "level": 3,
+      "prerequisites": [
+        "snapshot"
+      ],
+      "passages": [
+        "p-snapshot"
+      ],
+      "prompt": "A sample is collected before a meal and another after. How should they be treated?",
+      "correct": "a",
+      "explanation": "Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "As snapshots under different conditions",
+          "explanation": "Exactly. Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "b",
+          "text": "As guaranteed identical states",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "c",
+          "text": "As a continuous movie of digestion",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        }
+      ]
+    },
+    {
+      "id": "q-snapshot-6",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "snapshot",
+      "level": 3,
+      "prerequisites": [
+        "snapshot"
+      ],
+      "passages": [
+        "p-snapshot"
+      ],
+      "prompt": "You want to study change over an afternoon. What improves on one sample?",
+      "correct": "a",
+      "explanation": "Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Collect samples at documented times",
+          "explanation": "Exactly. Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "b",
+          "text": "Relabel one sample with several times",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "c",
+          "text": "Assume the first sample describes every later state",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        }
+      ]
+    },
+    {
+      "id": "q-snapshot-7",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "snapshot",
+      "level": 4,
+      "prerequisites": [
+        "snapshot"
+      ],
+      "passages": [
+        "p-snapshot"
+      ],
+      "prompt": "One sample is used to claim a molecule never changes. Is that supported?",
+      "correct": "a",
+      "explanation": "Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "No, one time point cannot show constancy over time",
+          "explanation": "Exactly. Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "b",
+          "text": "Yes, every sample covers all time points",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "c",
+          "text": "Yes, metabolites cannot change",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        }
+      ]
+    },
+    {
+      "id": "q-snapshot-8",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "snapshot",
+      "level": 4,
+      "prerequisites": [
+        "snapshot"
+      ],
+      "passages": [
+        "p-snapshot"
+      ],
+      "prompt": "Two well-measured samples differ an hour apart. What is supported?",
+      "correct": "a",
+      "explanation": "Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "A change in sampled state is possible",
+          "explanation": "Exactly. Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "b",
+          "text": "The instrument must be broken",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        },
+        {
+          "id": "c",
+          "text": "Both samples must contain identical amounts",
+          "explanation": "Consider the distinction: Molecules are made, used, and exchanged over time. A sample describes a particular state; one time point cannot establish an unchanging history."
+        }
+      ]
+    },
+    {
+      "id": "q-pathways-1",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "pathways",
+      "level": 1,
+      "prerequisites": [
+        "pathways"
+      ],
+      "passages": [
+        "p-pathways"
+      ],
+      "prompt": "What links steps in a metabolic pathway?",
+      "correct": "a",
+      "explanation": "Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "A product can become the next starting material",
+          "explanation": "Exactly. Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "b",
+          "text": "Every step must occur in a separate organism",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "c",
+          "text": "The steps have no chemical connection",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        }
+      ]
+    },
+    {
+      "id": "q-pathways-2",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "pathways",
+      "level": 1,
+      "prerequisites": [
+        "pathways"
+      ],
+      "passages": [
+        "p-pathways"
+      ],
+      "prompt": "What helps catalyze metabolic reactions?",
+      "correct": "a",
+      "explanation": "Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Enzymes",
+          "explanation": "Exactly. Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "b",
+          "text": "The quantity of sample labels",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "c",
+          "text": "The order of measurements alone",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        }
+      ]
+    },
+    {
+      "id": "q-pathways-3",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "pathways",
+      "level": 2,
+      "prerequisites": [
+        "pathways"
+      ],
+      "passages": [
+        "p-pathways"
+      ],
+      "prompt": "Why are pathway molecules connected?",
+      "correct": "a",
+      "explanation": "Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "One reaction can supply material to another",
+          "explanation": "Exactly. Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "b",
+          "text": "All steps must use identical enzymes",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "c",
+          "text": "All molecules have identical amounts",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        }
+      ]
+    },
+    {
+      "id": "q-pathways-4",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "pathways",
+      "level": 2,
+      "prerequisites": [
+        "pathways"
+      ],
+      "passages": [
+        "p-pathways"
+      ],
+      "prompt": "Why is an amount not automatically a reaction rate?",
+      "correct": "a",
+      "explanation": "Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Amount describes what is present, not how fast it moves",
+          "explanation": "Exactly. Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "b",
+          "text": "Amounts can never be measured",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "c",
+          "text": "Every molecule moves at one universal rate",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        }
+      ]
+    },
+    {
+      "id": "q-pathways-5",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "pathways",
+      "level": 3,
+      "prerequisites": [
+        "pathways"
+      ],
+      "passages": [
+        "p-pathways"
+      ],
+      "prompt": "In A to B to C, what role can B have?",
+      "correct": "a",
+      "explanation": "Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Product of one step and input to the next",
+          "explanation": "Exactly. Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "b",
+          "text": "Only the final output of the pathway",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "c",
+          "text": "The enzyme for every step",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        }
+      ]
+    },
+    {
+      "id": "q-pathways-6",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "pathways",
+      "level": 3,
+      "prerequisites": [
+        "pathways"
+      ],
+      "passages": [
+        "p-pathways"
+      ],
+      "prompt": "A bottle contains much B. Does that alone give the speed of A to B?",
+      "correct": "a",
+      "explanation": "Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "No, amount alone does not specify the rate",
+          "explanation": "Exactly. Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "b",
+          "text": "Yes, more B always means the fastest rate",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "c",
+          "text": "Yes, all rates equal the amount of B",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        }
+      ]
+    },
+    {
+      "id": "q-pathways-7",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "pathways",
+      "level": 4,
+      "prerequisites": [
+        "pathways"
+      ],
+      "passages": [
+        "p-pathways"
+      ],
+      "prompt": "A report claims every reaction is faster because one intermediate rose. What is missing?",
+      "correct": "a",
+      "explanation": "Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Evidence about reaction rates and connected steps",
+          "explanation": "Exactly. Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "b",
+          "text": "A second name for the intermediate",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "c",
+          "text": "A larger amount of the same intermediate alone",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        }
+      ]
+    },
+    {
+      "id": "q-pathways-8",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "pathways",
+      "level": 4,
+      "prerequisites": [
+        "pathways"
+      ],
+      "passages": [
+        "p-pathways"
+      ],
+      "prompt": "A to B speeds up, but B to C also changes. What can one B measurement establish?",
+      "correct": "a",
+      "explanation": "Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time.",
+      "sources": [
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The amount of B at the sampled point",
+          "explanation": "Exactly. Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "b",
+          "text": "Both reaction rates exactly",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        },
+        {
+          "id": "c",
+          "text": "That neither reaction occurred",
+          "explanation": "Consider the distinction: Pathways connect reactions through their inputs and products. An amount is a snapshot of a pool, while a rate describes change or movement over time."
+        }
+      ]
+    },
+    {
+      "id": "q-metabolome-1",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "metabolome",
+      "level": 1,
+      "prerequisites": [
+        "metabolome"
+      ],
+      "passages": [
+        "p-metabolome"
+      ],
+      "prompt": "What is the metabolome?",
+      "correct": "a",
+      "explanation": "The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "A collection of metabolites in a biological system",
+          "explanation": "Exactly. The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "b",
+          "text": "The complete DNA sequence of a sample",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "c",
+          "text": "Only the enzymes in a pathway",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        }
+      ]
+    },
+    {
+      "id": "q-metabolome-2",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "metabolome",
+      "level": 1,
+      "prerequisites": [
+        "metabolome"
+      ],
+      "passages": [
+        "p-metabolome"
+      ],
+      "prompt": "Which term names the study of the metabolome?",
+      "correct": "a",
+      "explanation": "The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Metabolomics",
+          "explanation": "Exactly. The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "b",
+          "text": "Genomics",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "c",
+          "text": "Proteomics",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        }
+      ]
+    },
+    {
+      "id": "q-metabolome-3",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "metabolome",
+      "level": 2,
+      "prerequisites": [
+        "metabolome"
+      ],
+      "passages": [
+        "p-metabolome"
+      ],
+      "prompt": "Why identify the tissue that was sampled?",
+      "correct": "a",
+      "explanation": "The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Results refer to a particular biological setting",
+          "explanation": "Exactly. The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "b",
+          "text": "All tissues necessarily have identical chemistry",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "c",
+          "text": "Tissue names determine the correct answer",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        }
+      ]
+    },
+    {
+      "id": "q-metabolome-4",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "metabolome",
+      "level": 2,
+      "prerequisites": [
+        "metabolome"
+      ],
+      "passages": [
+        "p-metabolome"
+      ],
+      "prompt": "Why distinguish metabolome from metabolomics?",
+      "correct": "a",
+      "explanation": "The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "One names the collection and one its study",
+          "explanation": "Exactly. The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "b",
+          "text": "One is always a single molecule",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "c",
+          "text": "One describes DNA and the other RNA",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        }
+      ]
+    },
+    {
+      "id": "q-metabolome-5",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "metabolome",
+      "level": 3,
+      "prerequisites": [
+        "metabolome"
+      ],
+      "passages": [
+        "p-metabolome"
+      ],
+      "prompt": "A lab studies metabolites from a leaf. What is the relevant system?",
+      "correct": "a",
+      "explanation": "The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The sampled leaf under its collection conditions",
+          "explanation": "Exactly. The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "b",
+          "text": "Every tissue of that plant automatically",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "c",
+          "text": "All plants of the same species",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        }
+      ]
+    },
+    {
+      "id": "q-metabolome-6",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "metabolome",
+      "level": 3,
+      "prerequisites": [
+        "metabolome"
+      ],
+      "passages": [
+        "p-metabolome"
+      ],
+      "prompt": "A result comes from blood. Before applying it to muscle, what should you check?",
+      "correct": "a",
+      "explanation": "The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Whether evidence supports that different tissue",
+          "explanation": "Exactly. The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "b",
+          "text": "Whether both samples used the same label",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "c",
+          "text": "Whether both samples came from one person",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        }
+      ]
+    },
+    {
+      "id": "q-metabolome-7",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "metabolome",
+      "level": 4,
+      "prerequisites": [
+        "metabolome"
+      ],
+      "passages": [
+        "p-metabolome"
+      ],
+      "prompt": "A leaf sample is called a complete description of the whole tree. What is the problem?",
+      "correct": "a",
+      "explanation": "The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The sampled system is narrower than the claim",
+          "explanation": "Exactly. The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "b",
+          "text": "Leaves cannot contain metabolites",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "c",
+          "text": "Metabolomics can only study blood",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        }
+      ]
+    },
+    {
+      "id": "q-metabolome-8",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "metabolome",
+      "level": 4,
+      "prerequisites": [
+        "metabolome"
+      ],
+      "passages": [
+        "p-metabolome"
+      ],
+      "prompt": "Two studies use different tissues. What is a reasonable comparison?",
+      "correct": "a",
+      "explanation": "The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another.",
+      "sources": [
+        "intro",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Interpret each result with its sample context",
+          "explanation": "Exactly. The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "b",
+          "text": "Assume their metabolomes must match exactly",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        },
+        {
+          "id": "c",
+          "text": "Ignore the sampled tissue in both studies",
+          "explanation": "Consider the distinction: The metabolome belongs to a specified biological system and time. Metabolomics studies it; a result from one tissue needs evidence before generalization to another."
+        }
+      ]
+    },
+    {
+      "id": "q-context-1",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "context",
+      "level": 1,
+      "prerequisites": [
+        "context"
+      ],
+      "passages": [
+        "p-context"
+      ],
+      "prompt": "What can influence metabolite patterns?",
+      "correct": "a",
+      "explanation": "Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it.",
+      "sources": [
+        "intro",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Both genes and environment",
+          "explanation": "Exactly. Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "b",
+          "text": "Genes alone in every setting",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "c",
+          "text": "Environment alone in every setting",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        }
+      ]
+    },
+    {
+      "id": "q-context-2",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "context",
+      "level": 1,
+      "prerequisites": [
+        "context"
+      ],
+      "passages": [
+        "p-context"
+      ],
+      "prompt": "Is a metabolite profile simply a DNA sequence?",
+      "correct": "a",
+      "explanation": "Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it.",
+      "sources": [
+        "intro",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "No, it reflects additional influences",
+          "explanation": "Exactly. Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "b",
+          "text": "Yes, the two measurements are identical",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "c",
+          "text": "Yes, environmental conditions never matter",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        }
+      ]
+    },
+    {
+      "id": "q-context-3",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "context",
+      "level": 2,
+      "prerequisites": [
+        "context"
+      ],
+      "passages": [
+        "p-context"
+      ],
+      "prompt": "Why might similar plants have different profiles?",
+      "correct": "a",
+      "explanation": "Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it.",
+      "sources": [
+        "intro",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Their growing conditions may differ",
+          "explanation": "Exactly. Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "b",
+          "text": "Similar genes force every amount to match",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "c",
+          "text": "Conditions only affect DNA sequence, never metabolites",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        }
+      ]
+    },
+    {
+      "id": "q-context-4",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "context",
+      "level": 2,
+      "prerequisites": [
+        "context"
+      ],
+      "passages": [
+        "p-context"
+      ],
+      "prompt": "Why keep environmental information with measurements?",
+      "correct": "a",
+      "explanation": "Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it.",
+      "sources": [
+        "intro",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "It provides context for possible influences",
+          "explanation": "Exactly. Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "b",
+          "text": "It guarantees that every difference is genetic",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "c",
+          "text": "It removes the need to identify the sample",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        }
+      ]
+    },
+    {
+      "id": "q-context-5",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "context",
+      "level": 3,
+      "prerequisites": [
+        "context"
+      ],
+      "passages": [
+        "p-context"
+      ],
+      "prompt": "Similar plants receive different light conditions. What should an analyst consider?",
+      "correct": "a",
+      "explanation": "Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it.",
+      "sources": [
+        "intro",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Growing conditions as a possible influence",
+          "explanation": "Exactly. Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "b",
+          "text": "Only the plants' shared genetic background",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "c",
+          "text": "That a shared species guarantees matching profiles",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        }
+      ]
+    },
+    {
+      "id": "q-context-6",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "context",
+      "level": 3,
+      "prerequisites": [
+        "context"
+      ],
+      "passages": [
+        "p-context"
+      ],
+      "prompt": "Two profiles differ and no exposure data were collected. What is a useful next step?",
+      "correct": "a",
+      "explanation": "Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it.",
+      "sources": [
+        "intro",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Gather relevant context before assigning a cause",
+          "explanation": "Exactly. Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "b",
+          "text": "Declare the difference entirely genetic",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "c",
+          "text": "Assume the two profiles must be identical",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        }
+      ]
+    },
+    {
+      "id": "q-context-7",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "context",
+      "level": 4,
+      "prerequisites": [
+        "context"
+      ],
+      "passages": [
+        "p-context"
+      ],
+      "prompt": "A profile differs between groups. Does this alone prove a genetic cause?",
+      "correct": "a",
+      "explanation": "Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it.",
+      "sources": [
+        "intro",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "No, environmental influences also need consideration",
+          "explanation": "Exactly. Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "b",
+          "text": "Yes, every metabolite difference is genetic",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "c",
+          "text": "Yes, genes and metabolites are identical objects",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        }
+      ]
+    },
+    {
+      "id": "q-context-8",
+      "version": 1,
+      "topic": "foundations",
+      "concept": "context",
+      "level": 4,
+      "prerequisites": [
+        "context"
+      ],
+      "passages": [
+        "p-context"
+      ],
+      "prompt": "Both genes and diet differ between groups. Which interpretation is best supported?",
+      "correct": "a",
+      "explanation": "Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it.",
+      "sources": [
+        "intro",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Several influences may contribute to the profiles",
+          "explanation": "Exactly. Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "b",
+          "text": "Diet is automatically irrelevant",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        },
+        {
+          "id": "c",
+          "text": "Only one influence can ever act at a time",
+          "explanation": "Consider the distinction: Both genetic and environmental influences can contribute. A difference in profiles by itself does not identify which influence caused it."
+        }
+      ]
+    },
+    {
+      "id": "q-diet-1",
+      "version": 1,
+      "topic": "variation",
+      "concept": "diet",
+      "level": 1,
+      "prerequisites": [
+        "diet"
+      ],
+      "passages": [
+        "p-diet"
+      ],
+      "prompt": "Which is a possible influence on a metabolite profile?",
+      "correct": "a",
+      "explanation": "Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences.",
+      "sources": [
+        "barnes",
+        "design"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Recent diet",
+          "explanation": "Exactly. Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "b",
+          "text": "Only inherited genetic information",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "c",
+          "text": "Only the condition named in the study",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        }
+      ]
+    },
+    {
+      "id": "q-diet-2",
+      "version": 1,
+      "topic": "variation",
+      "concept": "diet",
+      "level": 1,
+      "prerequisites": [
+        "diet"
+      ],
+      "passages": [
+        "p-diet"
+      ],
+      "prompt": "What information can help interpret meal-related variation?",
+      "correct": "a",
+      "explanation": "Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences.",
+      "sources": [
+        "barnes",
+        "design"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Relevant dietary records",
+          "explanation": "Exactly. Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "b",
+          "text": "Only the final group averages",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "c",
+          "text": "Only the total number of samples",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        }
+      ]
+    },
+    {
+      "id": "q-diet-3",
+      "version": 1,
+      "topic": "variation",
+      "concept": "diet",
+      "level": 2,
+      "prerequisites": [
+        "diet"
+      ],
+      "passages": [
+        "p-diet"
+      ],
+      "prompt": "Why can different diets complicate group comparisons?",
+      "correct": "a",
+      "explanation": "Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences.",
+      "sources": [
+        "barnes",
+        "design"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Diet may contribute to the measured differences",
+          "explanation": "Exactly. Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "b",
+          "text": "Diet only matters when studying digestion",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "c",
+          "text": "Different diets make every measurement invalid",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        }
+      ]
+    },
+    {
+      "id": "q-diet-4",
+      "version": 1,
+      "topic": "variation",
+      "concept": "diet",
+      "level": 2,
+      "prerequisites": [
+        "diet"
+      ],
+      "passages": [
+        "p-diet"
+      ],
+      "prompt": "Why use consistent collection conditions?",
+      "correct": "a",
+      "explanation": "Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences.",
+      "sources": [
+        "barnes",
+        "design"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "They reduce avoidable differences in context",
+          "explanation": "Exactly. Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "b",
+          "text": "They force every person to have the same biology",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "c",
+          "text": "They prove the study hypothesis in advance",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        }
+      ]
+    },
+    {
+      "id": "q-diet-5",
+      "version": 1,
+      "topic": "variation",
+      "concept": "diet",
+      "level": 3,
+      "prerequisites": [
+        "diet"
+      ],
+      "passages": [
+        "p-diet"
+      ],
+      "prompt": "One group ate breakfast and the other did not. What should you consider?",
+      "correct": "a",
+      "explanation": "Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences.",
+      "sources": [
+        "barnes",
+        "design"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Meal status as a possible contributor",
+          "explanation": "Exactly. Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "b",
+          "text": "Only the participants' group labels",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "c",
+          "text": "That a large sample automatically controls meals",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        }
+      ]
+    },
+    {
+      "id": "q-diet-6",
+      "version": 1,
+      "topic": "variation",
+      "concept": "diet",
+      "level": 3,
+      "prerequisites": [
+        "diet"
+      ],
+      "passages": [
+        "p-diet"
+      ],
+      "prompt": "You can add one record to a meal-focused study. Which is most relevant?",
+      "correct": "a",
+      "explanation": "Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences.",
+      "sources": [
+        "barnes",
+        "design"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "What and when participants ate",
+          "explanation": "Exactly. Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "b",
+          "text": "Only the participant identification numbers",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "c",
+          "text": "Only the order of laboratory measurements",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        }
+      ]
+    },
+    {
+      "id": "q-diet-7",
+      "version": 1,
+      "topic": "variation",
+      "concept": "diet",
+      "level": 4,
+      "prerequisites": [
+        "diet"
+      ],
+      "passages": [
+        "p-diet"
+      ],
+      "prompt": "Groups differ in diet and metabolite profiles. What can you conclude from that alone?",
+      "correct": "a",
+      "explanation": "Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences.",
+      "sources": [
+        "barnes",
+        "design"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Diet may contribute; the cause is not isolated",
+          "explanation": "Exactly. Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "b",
+          "text": "The target disease caused every difference",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "c",
+          "text": "Meals have been ruled out",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        }
+      ]
+    },
+    {
+      "id": "q-diet-8",
+      "version": 1,
+      "topic": "variation",
+      "concept": "diet",
+      "level": 4,
+      "prerequisites": [
+        "diet"
+      ],
+      "passages": [
+        "p-diet"
+      ],
+      "prompt": "A study records diet but never uses it in interpretation. What remains unresolved?",
+      "correct": "a",
+      "explanation": "Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences.",
+      "sources": [
+        "barnes",
+        "design"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Whether dietary differences help explain the pattern",
+          "explanation": "Exactly. Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "b",
+          "text": "Whether diet has definitely been ruled out",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        },
+        {
+          "id": "c",
+          "text": "Whether recording diet makes groups equivalent",
+          "explanation": "Consider the distinction: Diet can affect the chemical profile. Record relevant meal information and consider it when interpreting group differences."
+        }
+      ]
+    },
+    {
+      "id": "q-medication-1",
+      "version": 1,
+      "topic": "variation",
+      "concept": "medication",
+      "level": 1,
+      "prerequisites": [
+        "medication"
+      ],
+      "passages": [
+        "p-medication"
+      ],
+      "prompt": "Which contextual detail can matter for metabolomics?",
+      "correct": "a",
+      "explanation": "Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes.",
+      "sources": [
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Medication use",
+          "explanation": "Exactly. Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "b",
+          "text": "Only the disease label",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "c",
+          "text": "Only the average age of the group",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        }
+      ]
+    },
+    {
+      "id": "q-medication-2",
+      "version": 1,
+      "topic": "variation",
+      "concept": "medication",
+      "level": 1,
+      "prerequisites": [
+        "medication"
+      ],
+      "passages": [
+        "p-medication"
+      ],
+      "prompt": "What may appear alongside other measured molecules?",
+      "correct": "a",
+      "explanation": "Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes.",
+      "sources": [
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Drugs or their breakdown products",
+          "explanation": "Exactly. Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "b",
+          "text": "Only molecules encoded directly by genes",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "c",
+          "text": "Only molecules produced before treatment",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        }
+      ]
+    },
+    {
+      "id": "q-medication-3",
+      "version": 1,
+      "topic": "variation",
+      "concept": "medication",
+      "level": 2,
+      "prerequisites": [
+        "medication"
+      ],
+      "passages": [
+        "p-medication"
+      ],
+      "prompt": "Why record medication information?",
+      "correct": "a",
+      "explanation": "Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes.",
+      "sources": [
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Treatment may help explain a chemical pattern",
+          "explanation": "Exactly. Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "b",
+          "text": "It guarantees that all differences are disease effects",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "c",
+          "text": "It proves that all measured signals are drugs",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        }
+      ]
+    },
+    {
+      "id": "q-medication-4",
+      "version": 1,
+      "topic": "variation",
+      "concept": "medication",
+      "level": 2,
+      "prerequisites": [
+        "medication"
+      ],
+      "passages": [
+        "p-medication"
+      ],
+      "prompt": "Why can treatment complicate a disease comparison?",
+      "correct": "a",
+      "explanation": "Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes.",
+      "sources": [
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Treatment and disease may both relate to the profile",
+          "explanation": "Exactly. Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "b",
+          "text": "Treatments only affect symptoms, never metabolism",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "c",
+          "text": "A disease label accounts for every treatment effect",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        }
+      ]
+    },
+    {
+      "id": "q-medication-5",
+      "version": 1,
+      "topic": "variation",
+      "concept": "medication",
+      "level": 3,
+      "prerequisites": [
+        "medication"
+      ],
+      "passages": [
+        "p-medication"
+      ],
+      "prompt": "Only one study group uses a medicine. What belongs in the analysis context?",
+      "correct": "a",
+      "explanation": "Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes.",
+      "sources": [
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The difference in treatment use",
+          "explanation": "Exactly. Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "b",
+          "text": "Only the total number of samples",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "c",
+          "text": "An assumption that treatment has no effect",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        }
+      ]
+    },
+    {
+      "id": "q-medication-6",
+      "version": 1,
+      "topic": "variation",
+      "concept": "medication",
+      "level": 3,
+      "prerequisites": [
+        "medication"
+      ],
+      "passages": [
+        "p-medication"
+      ],
+      "prompt": "A signal may be a drug breakdown product. What information helps interpret it?",
+      "correct": "a",
+      "explanation": "Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes.",
+      "sources": [
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Recorded medication exposure",
+          "explanation": "Exactly. Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "b",
+          "text": "Only the participant's diagnosis",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "c",
+          "text": "Only the sample collection date",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        }
+      ]
+    },
+    {
+      "id": "q-medication-7",
+      "version": 1,
+      "topic": "variation",
+      "concept": "medication",
+      "level": 4,
+      "prerequisites": [
+        "medication"
+      ],
+      "passages": [
+        "p-medication"
+      ],
+      "prompt": "Treated patients differ from untreated controls. What is the careful conclusion?",
+      "correct": "a",
+      "explanation": "Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes.",
+      "sources": [
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Treatment is one possible contributor to the difference",
+          "explanation": "Exactly. Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "b",
+          "text": "Disease alone is proven to cause the difference",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "c",
+          "text": "The drug must be ineffective",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        }
+      ]
+    },
+    {
+      "id": "q-medication-8",
+      "version": 1,
+      "topic": "variation",
+      "concept": "medication",
+      "level": 4,
+      "prerequisites": [
+        "medication"
+      ],
+      "passages": [
+        "p-medication"
+      ],
+      "prompt": "A person sees a metabolite difference in a study. What does that alone establish about their medicine?",
+      "correct": "a",
+      "explanation": "Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes.",
+      "sources": [
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "It does not establish a personal medication change",
+          "explanation": "Exactly. Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "b",
+          "text": "They should immediately stop taking it",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        },
+        {
+          "id": "c",
+          "text": "They should double the dose",
+          "explanation": "Consider the distinction: Medication and its products can contribute to measurements, and treatment can influence metabolism. A study pattern alone does not support personal medication changes."
+        }
+      ]
+    },
+    {
+      "id": "q-timing-1",
+      "version": 1,
+      "topic": "variation",
+      "concept": "timing",
+      "level": 1,
+      "prerequisites": [
+        "timing"
+      ],
+      "passages": [
+        "p-timing"
+      ],
+      "prompt": "Which collection detail can affect interpretation?",
+      "correct": "a",
+      "explanation": "Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Time of day",
+          "explanation": "Exactly. Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "b",
+          "text": "Only the diagnosis on the label",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "c",
+          "text": "Only the number of study groups",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        }
+      ]
+    },
+    {
+      "id": "q-timing-2",
+      "version": 1,
+      "topic": "variation",
+      "concept": "timing",
+      "level": 1,
+      "prerequisites": [
+        "timing"
+      ],
+      "passages": [
+        "p-timing"
+      ],
+      "prompt": "Can biological activity vary across a day?",
+      "correct": "a",
+      "explanation": "Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, collection times can capture different states",
+          "explanation": "Exactly. Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "b",
+          "text": "No, every hour is chemically identical",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "c",
+          "text": "Only if the instrument is changed",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        }
+      ]
+    },
+    {
+      "id": "q-timing-3",
+      "version": 1,
+      "topic": "variation",
+      "concept": "timing",
+      "level": 2,
+      "prerequisites": [
+        "timing"
+      ],
+      "passages": [
+        "p-timing"
+      ],
+      "prompt": "Why avoid always sampling groups at opposite times?",
+      "correct": "a",
+      "explanation": "Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Time and group effects could become mixed",
+          "explanation": "Exactly. Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "b",
+          "text": "Morning samples are always more accurate",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "c",
+          "text": "Night samples are never biologically useful",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        }
+      ]
+    },
+    {
+      "id": "q-timing-4",
+      "version": 1,
+      "topic": "variation",
+      "concept": "timing",
+      "level": 2,
+      "prerequisites": [
+        "timing"
+      ],
+      "passages": [
+        "p-timing"
+      ],
+      "prompt": "Why record a collection timestamp?",
+      "correct": "a",
+      "explanation": "Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "It helps relate results to collection conditions",
+          "explanation": "Exactly. Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "b",
+          "text": "It proves every difference has one cause",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "c",
+          "text": "It makes collection schedules equivalent",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        }
+      ]
+    },
+    {
+      "id": "q-timing-5",
+      "version": 1,
+      "topic": "variation",
+      "concept": "timing",
+      "level": 3,
+      "prerequisites": [
+        "timing"
+      ],
+      "passages": [
+        "p-timing"
+      ],
+      "prompt": "Cases are sampled at dawn and controls at dusk. What needs attention?",
+      "correct": "a",
+      "explanation": "Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Collection time differs with group membership",
+          "explanation": "Exactly. Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "b",
+          "text": "Only the number of cases and controls",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "c",
+          "text": "That equal sample counts eliminate time effects",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        }
+      ]
+    },
+    {
+      "id": "q-timing-6",
+      "version": 1,
+      "topic": "variation",
+      "concept": "timing",
+      "level": 3,
+      "prerequisites": [
+        "timing"
+      ],
+      "passages": [
+        "p-timing"
+      ],
+      "prompt": "You plan a comparison across two groups. Which schedule helps?",
+      "correct": "a",
+      "explanation": "Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Use comparable collection times across groups",
+          "explanation": "Exactly. Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "b",
+          "text": "Always collect one group twelve hours later",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "c",
+          "text": "Discard all collection timestamps",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        }
+      ]
+    },
+    {
+      "id": "q-timing-7",
+      "version": 1,
+      "topic": "variation",
+      "concept": "timing",
+      "level": 4,
+      "prerequisites": [
+        "timing"
+      ],
+      "passages": [
+        "p-timing"
+      ],
+      "prompt": "A difference appears between morning cases and evening controls. What is supported?",
+      "correct": "a",
+      "explanation": "Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Time is a possible alternative explanation",
+          "explanation": "Exactly. Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "b",
+          "text": "The condition alone caused the difference",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "c",
+          "text": "Collection time has been controlled",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        }
+      ]
+    },
+    {
+      "id": "q-timing-8",
+      "version": 1,
+      "topic": "variation",
+      "concept": "timing",
+      "level": 4,
+      "prerequisites": [
+        "timing"
+      ],
+      "passages": [
+        "p-timing"
+      ],
+      "prompt": "Two samples differ at separate times of day. Which conclusion is supported?",
+      "correct": "a",
+      "explanation": "Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone.",
+      "sources": [
+        "barnes",
+        "dynamic"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Collection time could contribute to the difference",
+          "explanation": "Exactly. Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "b",
+          "text": "The difference proves a disease effect",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        },
+        {
+          "id": "c",
+          "text": "Collection time cannot affect a metabolite profile",
+          "explanation": "Consider the distinction: Collection time can vary with biological state. If time also varies with group, the observed difference cannot be assigned to group alone."
+        }
+      ]
+    },
+    {
+      "id": "q-people-1",
+      "version": 1,
+      "topic": "variation",
+      "concept": "people",
+      "level": 1,
+      "prerequisites": [
+        "people"
+      ],
+      "passages": [
+        "p-people"
+      ],
+      "prompt": "What creates another independent participant?",
+      "correct": "a",
+      "explanation": "Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Sampling a different person",
+          "explanation": "Exactly. Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "b",
+          "text": "Measuring the same tube again",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "c",
+          "text": "Splitting one donor's sample into two tubes",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        }
+      ]
+    },
+    {
+      "id": "q-people-2",
+      "version": 1,
+      "topic": "variation",
+      "concept": "people",
+      "level": 1,
+      "prerequisites": [
+        "people"
+      ],
+      "passages": [
+        "p-people"
+      ],
+      "prompt": "What can repeated measurement of one sample help assess?",
+      "correct": "a",
+      "explanation": "Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The measurement process",
+          "explanation": "Exactly. Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "b",
+          "text": "Variation among different people by itself",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "c",
+          "text": "The effect of every exposure in a population",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        }
+      ]
+    },
+    {
+      "id": "q-people-3",
+      "version": 1,
+      "topic": "variation",
+      "concept": "people",
+      "level": 2,
+      "prerequisites": [
+        "people"
+      ],
+      "passages": [
+        "p-people"
+      ],
+      "prompt": "Why keep participant identity linked to samples?",
+      "correct": "a",
+      "explanation": "Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "To distinguish people from repeat measurements",
+          "explanation": "Exactly. Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "b",
+          "text": "To count each repeated sample as a new person",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "c",
+          "text": "To treat every tube as biologically independent",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        }
+      ]
+    },
+    {
+      "id": "q-people-4",
+      "version": 1,
+      "topic": "variation",
+      "concept": "people",
+      "level": 2,
+      "prerequisites": [
+        "people"
+      ],
+      "passages": [
+        "p-people"
+      ],
+      "prompt": "Why are ten measurements of one person not ten participants?",
+      "correct": "a",
+      "explanation": "Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "They still come from the same person",
+          "explanation": "Exactly. Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "b",
+          "text": "Repeated measurements remove all variation",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "c",
+          "text": "Measuring again creates independent biology",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        }
+      ]
+    },
+    {
+      "id": "q-people-5",
+      "version": 1,
+      "topic": "variation",
+      "concept": "people",
+      "level": 3,
+      "prerequisites": [
+        "people"
+      ],
+      "passages": [
+        "p-people"
+      ],
+      "prompt": "One tube is measured five times. How many people does it represent if it came from one donor?",
+      "correct": "a",
+      "explanation": "Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "One person",
+          "explanation": "Exactly. Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "b",
+          "text": "Five independent people",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "c",
+          "text": "Five unrelated biological systems",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        }
+      ]
+    },
+    {
+      "id": "q-people-6",
+      "version": 1,
+      "topic": "variation",
+      "concept": "people",
+      "level": 3,
+      "prerequisites": [
+        "people"
+      ],
+      "passages": [
+        "p-people"
+      ],
+      "prompt": "You want to study differences among people. What is useful?",
+      "correct": "a",
+      "explanation": "Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Samples from multiple independent participants",
+          "explanation": "Exactly. Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "b",
+          "text": "More measurements of the same donor only",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "c",
+          "text": "More aliquots from one donor only",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        }
+      ]
+    },
+    {
+      "id": "q-people-7",
+      "version": 1,
+      "topic": "variation",
+      "concept": "people",
+      "level": 4,
+      "prerequisites": [
+        "people"
+      ],
+      "passages": [
+        "p-people"
+      ],
+      "prompt": "A report claims broad population variation from one repeatedly measured donor. What is missing?",
+      "correct": "a",
+      "explanation": "Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Evidence from multiple independent participants",
+          "explanation": "Exactly. Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "b",
+          "text": "More decimal places in the same result",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "c",
+          "text": "More measurements of the same donor only",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        }
+      ]
+    },
+    {
+      "id": "q-people-8",
+      "version": 1,
+      "topic": "variation",
+      "concept": "people",
+      "level": 4,
+      "prerequisites": [
+        "people"
+      ],
+      "passages": [
+        "p-people"
+      ],
+      "prompt": "A study has stable repeated measurements and varied participants. What distinction matters?",
+      "correct": "a",
+      "explanation": "Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Measurement variation and participant variation are different",
+          "explanation": "Exactly. Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "b",
+          "text": "Stable measurements eliminate biological variation",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        },
+        {
+          "id": "c",
+          "text": "Participant differences prove instrument failure",
+          "explanation": "Consider the distinction: Repeated measurements of one donor help assess measurement variation. They do not supply independent evidence about variation among different people."
+        }
+      ]
+    },
+    {
+      "id": "q-confounding-1",
+      "version": 1,
+      "topic": "variation",
+      "concept": "confounding",
+      "level": 1,
+      "prerequisites": [
+        "confounding"
+      ],
+      "passages": [
+        "p-confounding"
+      ],
+      "prompt": "What is an association?",
+      "correct": "a",
+      "explanation": "When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "An observed relationship",
+          "explanation": "Exactly. When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "b",
+          "text": "Automatic proof of a cause",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "c",
+          "text": "A guarantee that all other influences were removed",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        }
+      ]
+    },
+    {
+      "id": "q-confounding-2",
+      "version": 1,
+      "topic": "variation",
+      "concept": "confounding",
+      "level": 1,
+      "prerequisites": [
+        "confounding"
+      ],
+      "passages": [
+        "p-confounding"
+      ],
+      "prompt": "Which situation makes interpretation harder?",
+      "correct": "a",
+      "explanation": "When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Diet changes together with the group label",
+          "explanation": "Exactly. When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "b",
+          "text": "Collection times are comparable across groups",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "c",
+          "text": "Relevant exposures are considered during interpretation",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        }
+      ]
+    },
+    {
+      "id": "q-confounding-3",
+      "version": 1,
+      "topic": "variation",
+      "concept": "confounding",
+      "level": 2,
+      "prerequisites": [
+        "confounding"
+      ],
+      "passages": [
+        "p-confounding"
+      ],
+      "prompt": "Why consider competing explanations?",
+      "correct": "a",
+      "explanation": "When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Several influences can produce a group difference",
+          "explanation": "Exactly. When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "b",
+          "text": "Every observed relationship must be causal",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "c",
+          "text": "Study design never affects interpretation",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        }
+      ]
+    },
+    {
+      "id": "q-confounding-4",
+      "version": 1,
+      "topic": "variation",
+      "concept": "confounding",
+      "level": 2,
+      "prerequisites": [
+        "confounding"
+      ],
+      "passages": [
+        "p-confounding"
+      ],
+      "prompt": "Why plan comparable conditions across groups?",
+      "correct": "a",
+      "explanation": "When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "To reduce alternative explanations for differences",
+          "explanation": "Exactly. When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "b",
+          "text": "To ensure the desired answer appears",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "c",
+          "text": "To make every association prove causation",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        }
+      ]
+    },
+    {
+      "id": "q-confounding-5",
+      "version": 1,
+      "topic": "variation",
+      "concept": "confounding",
+      "level": 3,
+      "prerequisites": [
+        "confounding"
+      ],
+      "passages": [
+        "p-confounding"
+      ],
+      "prompt": "Cases are fasting and controls just ate. What is a competing explanation?",
+      "correct": "a",
+      "explanation": "When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Meal status",
+          "explanation": "Exactly. When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "b",
+          "text": "Only the cases' diagnosis",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "c",
+          "text": "Only the fact that there are two groups",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        }
+      ]
+    },
+    {
+      "id": "q-confounding-6",
+      "version": 1,
+      "topic": "variation",
+      "concept": "confounding",
+      "level": 3,
+      "prerequisites": [
+        "confounding"
+      ],
+      "passages": [
+        "p-confounding"
+      ],
+      "prompt": "A group difference remains after one influence is considered. What should you do?",
+      "correct": "a",
+      "explanation": "When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Check whether other relevant explanations remain",
+          "explanation": "Exactly. When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "b",
+          "text": "Declare every possible alternative impossible",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "c",
+          "text": "Assume the measurements describe every tissue",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        }
+      ]
+    },
+    {
+      "id": "q-confounding-7",
+      "version": 1,
+      "topic": "variation",
+      "concept": "confounding",
+      "level": 4,
+      "prerequisites": [
+        "confounding"
+      ],
+      "passages": [
+        "p-confounding"
+      ],
+      "prompt": "A small observational study finds a pattern. Which conclusion is best supported?",
+      "correct": "a",
+      "explanation": "When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "There is an association that needs careful interpretation",
+          "explanation": "Exactly. When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "b",
+          "text": "The group label is proven to cause the pattern",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "c",
+          "text": "No further study could add information",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        }
+      ]
+    },
+    {
+      "id": "q-confounding-8",
+      "version": 1,
+      "topic": "variation",
+      "concept": "confounding",
+      "level": 4,
+      "prerequisites": [
+        "confounding"
+      ],
+      "passages": [
+        "p-confounding"
+      ],
+      "prompt": "Diet, time, and group all differ together. What is the main limitation?",
+      "correct": "a",
+      "explanation": "When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation.",
+      "sources": [
+        "design",
+        "barnes"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Their contributions are difficult to separate",
+          "explanation": "Exactly. When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "b",
+          "text": "The study includes too much context",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        },
+        {
+          "id": "c",
+          "text": "Only one factor can affect metabolites",
+          "explanation": "Consider the distinction: When another influence varies with group membership, its contribution may be hard to separate. An association alone does not establish causation."
+        }
+      ]
+    }
+  ]
+}
