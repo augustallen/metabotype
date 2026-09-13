@@ -92,3 +92,7 @@ python scripts/build_zipapp.py
 Content is bundled in `src/metabotype/data/curriculum.json`, with stable IDs, versions, prerequisites, answer explanations, and source links. Tests cover scoring, learning, persistence, historical graphs, ordinary-space rendering, and real-terminal play and recovery.
 
 See [CONTENT_REVIEW.md](CONTENT_REVIEW.md) for source attribution and review limitations, and [PLAN.md](PLAN.md) for the curriculum roadmap. Scientific review and difficulty calibration with learners remain useful before classroom use.
+
+## License
+
+[MIT](LICENSE) — Copyright (c) 2026 August Allen.
