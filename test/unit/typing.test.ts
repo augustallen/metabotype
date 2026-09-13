@@ -230,7 +230,7 @@ describe('TypingState', () => {
 
 describe('Python parity fixtures', () => {
   type Step = [string, number, string, number, number, number, number, number, number, number, number, number, number, number]
-  const cases = fixtures as { target: string; steps: Step[]; final: Record<string, number | string | boolean | null>; complete: boolean }[]
+  const cases = fixtures as unknown as { target: string; steps: Step[]; final: Record<string, number | string | boolean | null>; complete: boolean }[]
 
   it(`replays ${cases.length} recorded sessions identically`, () => {
     let checked = 0

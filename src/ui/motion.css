@@ -1,0 +1,65 @@
+/*
+ * Motion tokens and the few transitions Metabotype uses, written in-house.
+ * Patterns are in the spirit of transitions.dev (number pop-in, text swap,
+ * error shake, drawn check, sliding tabs, page slide, sheet reveal, badge pop).
+ * Only transform, opacity and filter animate; everything is instant under
+ * prefers-reduced-motion.
+ */
+:root {
+  --t-fast: 150ms;
+  --t-base: 220ms;
+  --t-slow: 320ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-emph: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Sheet reveal */
+.sheet-backdrop { animation: fade-in var(--t-fast) ease both; }
+.sheet { animation: sheet-up var(--t-slow) var(--ease) both; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sheet-up { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* Text states swap: the sentence counter and result title */
+.typing-sentence, .frame-title { animation: text-swap var(--t-base) var(--ease) both; }
+@keyframes text-swap { from { opacity: 0; filter: blur(4px); transform: translateY(3px); } to { opacity: 1; filter: none; transform: none; } }
+
+/* Number pop-in on results */
+.pop { display: inline-block; animation: pop-in var(--t-slow) var(--ease-emph) both; }
+.big-stat:nth-child(2) .pop { animation-delay: 60ms; }
+@keyframes pop-in { from { opacity: 0; filter: blur(6px); transform: translateY(8px) scale(0.92); } to { opacity: 1; filter: none; transform: none; } }
+
+/* Drawn success check */
+.verdict .check path { stroke-dasharray: 32; stroke-dashoffset: 32; animation: draw var(--t-slow) var(--ease) 120ms both; }
+.verdict-correct { animation: pop-in var(--t-base) var(--ease-emph) both; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* Notification badge pop */
+.badge { animation: badge-pop var(--t-slow) var(--ease-emph) 200ms both; }
+@keyframes badge-pop { from { transform: translate(-6px, 6px) scale(0.6); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* Error shake on the cursor when a wrong key lands */
+.ch.cursor-error { animation: shake var(--t-base) cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-3px); }
+  40%, 60% { transform: translateX(3px); }
+}
+
+/* Page side-by-side via the View Transitions API */
+::view-transition-old(root) { animation: page-out var(--t-base) var(--ease) both; }
+::view-transition-new(root) { animation: page-in var(--t-base) var(--ease) both; }
+@keyframes page-out { to { opacity: 0; transform: translateX(-12px); } }
+@keyframes page-in { from { opacity: 0; transform: translateX(12px); } }
+
+/* Skeleton to reveal for charts */
+.chart svg { animation: fade-in var(--t-base) ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after, ::view-transition-old(root), ::view-transition-new(root) {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .verdict .check path { stroke-dashoffset: 0; }
+}
