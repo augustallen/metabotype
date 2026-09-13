@@ -1,5 +1,7 @@
 # metabotype
 
+![Metabotype — Small molecules. Steady fingers. A retro terminal surrounded by molecular motifs.](assets/readme-banner.png)
+
 **Small molecules. Steady fingers.** Type a short passage, answer a metabolomics question, and watch your progress in the field notebook.
 
 ## Play
