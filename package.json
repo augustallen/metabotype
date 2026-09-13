@@ -1,0 +1,35 @@
+{
+  "name": "metabotype",
+  "version": "0.5.0",
+  "private": true,
+  "description": "Small molecules. Steady fingers. A typing and metabolomics game for phones and desktops.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "validate-content": "node scripts/validate-content.ts",
+    "fixtures": "python3 cli/tools/gen_fixtures.py test/fixtures"
+  },
+  "dependencies": {
+    "@preact/signals": "^2.0.0",
+    "preact": "^10.26.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@preact/preset-vite": "^2.10.0",
+    "fake-indexeddb": "^6.0.0",
+    "happy-dom": "^18.0.0",
+    "typescript": "^5.8.0",
+    "vite": "^7.0.0",
+    "vite-plugin-pwa": "^1.0.0",
+    "vitest": "^3.2.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

@@ -10,3 +10,9 @@ dist/
 *.sqlite3
 *.sqlite3-*
 history.lock
+node_modules/
+dist/
+dev-dist/
+test-results/
+playwright-report/
+.vite/
