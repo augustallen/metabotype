@@ -10,14 +10,14 @@ export function Kbd({ children }: { children: ComponentChildren }) {
   return fine ? <kbd class="kbd">{children}</kbd> : null
 }
 
-export function Frame(props: { title: string; children: ComponentChildren; bar?: ComponentChildren; hint?: ComponentChildren; wide?: boolean; back?: () => void; backLabel?: string }) {
+export function Frame(props: { title: string; children: ComponentChildren; bar?: ComponentChildren; hint?: ComponentChildren; wide?: boolean; back?: () => void; backLabel?: string; hideTitle?: boolean }) {
   return (
     <section class={`frame ${props.wide ? 'frame-wide' : ''}`}>
       <header class="frame-head">
         {props.back
           ? <button class="ghost back" type="button" onClick={props.back} aria-label={props.backLabel ?? 'Back'}>‹</button>
           : <span class="brand">m / metabotype</span>}
-        <h1 class="frame-title">{props.title}</h1>
+        <h1 class={props.hideTitle ? 'visually-hidden' : 'frame-title'}>{props.title}</h1>
       </header>
       <div class="frame-body">{props.children}</div>
       {props.hint ? <div class="hint">{props.hint}</div> : null}

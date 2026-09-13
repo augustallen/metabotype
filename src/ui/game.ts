@@ -313,7 +313,7 @@ export class Game {
 
   private startTicker(): void {
     this.stopTicker()
-    this.ticker = window.setInterval(() => { this.tick.value++ }, 1000)
+    this.ticker = window.setInterval(() => { this.tick.value++ }, 500)
   }
 
   private stopTicker(): void {

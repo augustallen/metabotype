@@ -86,7 +86,8 @@ a { color: var(--teal); }
   padding: 12px 0 calc(14px + var(--safe-b));
   background: linear-gradient(to top, var(--bg) 75%, transparent);
 }
-.bar .btn { flex: 1; }
+.bar .btn { flex: 1; padding-inline: 10px; white-space: nowrap; }
+.bar .btn.primary { flex: 1.4; }
 
 .kbd {
   font-family: var(--mono);
@@ -177,11 +178,13 @@ a { color: var(--teal); }
 .typing-meta { display: flex; flex-direction: column; min-width: 0; }
 .typing-topic { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .typing-sentence { color: var(--gold); font-size: 14px; }
-.pause-btn { font-size: 14px; letter-spacing: -2px; }
+.pause-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; padding: 0 12px; }
+.pause-btn svg { fill: currentColor; }
+.typing-spacer { flex: 1; }
 .typing-stats { display: flex; gap: 22px; color: var(--teal); font-size: 15px; padding: 6px 0 10px; }
 .stat .num { font-family: var(--mono); font-size: 20px; margin-right: 4px; font-variant-numeric: tabular-nums; }
 .passage {
-  flex: 1;
+  flex: 0 1 auto;
   min-height: 0;
   overflow-y: auto;
   font-family: var(--mono);

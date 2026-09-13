@@ -1,4 +1,8 @@
-# Metabotyper: mobile-first web version of Metabotype
+# Metabotype web: mobile-first design notes
+
+> Status (2026-09-13): implemented in this repository on the `web` branch. The project kept the name
+> Metabotype and lives in the original repo with the terminal game under `cli/`. PLAN.md records what
+> shipped; this document keeps the design reasoning and the review notes.
 
 ## Context
 

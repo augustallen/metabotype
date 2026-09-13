@@ -35,7 +35,7 @@ export function Home({ game }: { game: Game }) {
   const update = game.updateReady.value
   const install = useInstallHint(game)
   return (
-    <Frame title="Metabotype" hint={<Kbd>Enter plays · P T H · ? help</Kbd>}>
+    <Frame title="Metabotype" hideTitle hint={<Kbd>Enter plays · P T H · ? help</Kbd>}>
       <p class="tagline">Small molecules. Steady fingers.</p>
       <p class="lede">Type a short passage, answer a metabolomics question, and watch your progress in the field notebook.</p>
       <nav class="menu" aria-label="Main menu">
@@ -146,7 +146,8 @@ export function Typing({ game }: { game: Game }) {
           <span class="typing-sentence">Sentence {index + 1} of {state.boundaries.length}</span>
         </div>
         <button type="button" class="ghost pause-btn" onClick={() => game.pause()} aria-label="Pause">
-          <span aria-hidden="true">❚❚</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5" /><rect x="14" y="4" width="5" height="16" rx="1.5" /></svg>
+          <span>Pause</span>
         </button>
       </header>
       <div class="typing-stats" aria-live="off">
@@ -167,6 +168,7 @@ export function Typing({ game }: { game: Game }) {
         })}
       </div>
       {state.error ? <p class="error-hint" role="status">! {errorHint}</p> : <p class="error-hint placeholder" aria-hidden="true">&nbsp;</p>}
+      <div class="typing-spacer" />
       {!focused && !paused ? <button type="button" class="tap-to-type" onClick={() => game.field.focus()}>Tap to type</button> : null}
       <div class="progress" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
         <div class="progress-fill" style={{ width: `${progress}%` }} />
