@@ -6,7 +6,14 @@ The original keyboard-only version. Requires Python 3.11+ on Linux or macOS. No 
 python metabotype.py
 ```
 
-Or install it:
+Or install it straight from GitHub, no clone needed:
+
+```bash
+pipx install "git+https://github.com/augustallen/metabotype#subdirectory=cli"
+metabotype
+```
+
+Or install it from this directory:
 
 ```bash
 python -m venv .venv

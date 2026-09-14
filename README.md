@@ -9,6 +9,17 @@ Metabotype comes in two forms that share one curriculum:
 - **The website** (this directory): plays in any modern browser, and is built for phones first. Install it to your home screen and it works offline.
 - **The terminal game** (`cli/`): the original Python 3.11+ curses version. See [cli/README.md](cli/README.md).
 
+## Play in the terminal
+
+Requires Python 3.11+ on Linux or macOS. Install it straight from GitHub, no clone needed:
+
+```bash
+pipx install "git+https://github.com/augustallen/metabotype#subdirectory=cli"
+metabotype
+```
+
+Or from a clone: `cd cli && python metabotype.py`.
+
 ## Play on the web
 
 Open the hosted site, or run it locally:
@@ -18,9 +29,7 @@ npm install
 npm run dev          # http://localhost:5173
 ```
 
-`npm run build` writes a static `dist/` that any web host can serve. Cloudflare Pages settings: build command `npm run build`, output directory `dist`.
-
-Hosting is planned but not deployed yet. See the [launch plan](WEB_PLAN.md#6-hosting-cloudflare-pages): preview from `web`, check the hosted game, then release from `main`.
+`npm run build` writes a static `dist/` that any web host can serve. The site deploys to Cloudflare Workers from `main`: build command `npm run build`, deploy command `npx wrangler deploy` (configured in `wrangler.jsonc`). See the [launch plan](WEB_PLAN.md#6-hosting-cloudflare-pages).
 
 For phone testing, use an HTTPS host or an HTTPS development setup. A plain HTTP address on your local network cannot provide the exclusive history access the app requires.
 
