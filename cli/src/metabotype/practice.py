@@ -22,7 +22,6 @@ def recommend(content, storage, topic=None, concept=None, review_streak=0, rng=N
     now = storage.clock()
     due = storage.reviews(due_only=True)
     passage_counts = Counter(r["passage_id"] for r in storage.rounds() if r["typing_status"] == "complete")
-    passage_order = {pid: index for index, pid in enumerate(content.passages)}
     current = topic
     if not current:
         last = storage.db.execute("SELECT topic FROM learning ORDER BY last_practiced DESC LIMIT 1").fetchone()
@@ -52,7 +51,8 @@ def recommend(content, storage, topic=None, concept=None, review_streak=0, rng=N
             used = q["id"] in [x[0] for x in state.window]
             score = (priority, q["topic"] != current, kind != "fresh", used,
                      p["concepts"][0] in encountered, passage_counts[pid], last or 0,
-                     passage_order[pid], rng.random())
+                     # Equally useful rounds are drawn at random, so a new game doesn't always open the same way.
+                     rng.random())
             reason = "Rebuild a missed concept" if review and review["stage"] == 0 else "A retention check is due" if review else "Explore this topic"
             if kind == "review":
                 reason = "Bank explored: review only; reassess after 24 hours or try another topic"

@@ -272,7 +272,8 @@ describe('Store', () => {
   it('prerequisites and alternate question', () => {
     const first = recommend(content, store, { concept: 'molecules', rng: mulberry32(1) })
     expect(first.evidenceKind).toBe('fresh')
-    expect(first.passage.id).toBe(p.id)
+    expect(first.question.concept).toBe('molecules')
+    expect(first.question.passages).toContain(first.passage.id)
     const rid = typed()
     store.showQuestion(rid, first.question, ['a', 'b', 'c'], 'fresh')
     store.answer(rid, first.question, 'b', 1)
@@ -281,16 +282,28 @@ describe('Store', () => {
     expect(second.review).toBe(true)
   })
 
-  it('intro first and review round cap', () => {
-    const first = recommend(content, store)
-    expect(first.passage.id).toBe('p-molecules')
+  it('new players start on a random fresh round in the first topic', () => {
+    const picks = new Set<string>()
+    for (let seed = 1; seed <= 20; seed++) {
+      const rec = recommend(content, store, { rng: mulberry32(seed) })
+      expect(rec.question.topic).toBe('foundations')
+      expect(rec.question.level).toBe(1)
+      expect(rec.evidenceKind).toBe('fresh')
+      picks.add(rec.passage.id)
+    }
+    expect(picks.size).toBeGreaterThan(1)
+  })
+
+  it('review round cap', () => {
+    const first = recommend(content, store, { rng: mulberry32(1) })
+    const concept = first.question.concept
     const rid = typed()
     store.showQuestion(rid, first.question, ['a', 'b', 'c'], 'fresh')
     store.answer(rid, first.question, 'b', 1)
     const review = recommend(content, store, { reviewStreak: 1 })
-    expect(review.question.concept).toBe('molecules')
+    expect(review.question.concept).toBe(concept)
     const newWork = recommend(content, store, { reviewStreak: 2 })
-    expect(newWork.question.concept).not.toBe('molecules')
+    expect(newWork.question.concept).not.toBe(concept)
   })
 
   it('exhausted bank and delayed reassessment', () => {

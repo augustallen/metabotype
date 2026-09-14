@@ -45,7 +45,6 @@ export function recommend(content: Content, storage: RecommendSource, options: R
   for (const r of storage.rounds()) {
     if (r.typing_status === 'complete') passageCounts.set(r.passage_id, (passageCounts.get(r.passage_id) ?? 0) + 1)
   }
-  const passageOrder = new Map(Object.keys(content.passages).map((pid, index) => [pid, index]))
   const current = topic || storage.lastTopic() || Object.keys(content.topics)[0]
   const candidates: [Score, Recommendation][] = []
   for (const q of Object.values(content.questions)) {
@@ -67,7 +66,8 @@ export function recommend(content: Content, storage: RecommendSource, options: R
       const score: Score = [
         priority, Number(q.topic !== current), Number(kind !== 'fresh'), Number(used),
         Number(encountered.has(p.concepts[0])), passageCounts.get(pid) ?? 0, last ?? 0,
-        passageOrder.get(pid) ?? 0, rng(),
+        // Equally useful rounds are drawn at random, so a new game doesn't always open the same way.
+        rng(),
       ]
       let reason = review && review.stage === 0 ? 'Rebuild a missed concept' : review ? 'A retention check is due' : 'Explore this topic'
       if (kind === 'review') reason = 'Bank explored: review only; reassess after 24 hours or try another topic'

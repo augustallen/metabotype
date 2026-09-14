@@ -509,7 +509,8 @@ class StorageTests(unittest.TestCase):
     def test_prerequisites_and_alternate_question(self):
         first = recommend(self.content, self.store, concept="molecules", rng=random.Random(1))
         self.assertEqual(first.evidence_kind, "fresh")
-        self.assertEqual(first.passage["id"], self.p["id"])
+        self.assertEqual(first.question["concept"], "molecules")
+        self.assertIn(first.passage["id"], first.question["passages"])
         rid = self.typed()
         self.store.show_question(rid, first.question, ["a", "b", "c"], "fresh")
         self.store.answer(rid, first.question, "b", 1)
@@ -517,16 +518,26 @@ class StorageTests(unittest.TestCase):
         self.assertNotEqual(first.question["id"], second.question["id"])
         self.assertTrue(second.review)
 
-    def test_intro_first_and_review_round_cap(self):
-        first = recommend(self.content, self.store)
-        self.assertEqual(first.passage["id"], "p-molecules")
+    def test_new_players_start_on_a_random_fresh_round(self):
+        picks = set()
+        for seed in range(1, 21):
+            rec = recommend(self.content, self.store, rng=random.Random(seed))
+            self.assertEqual(rec.question["topic"], "foundations")
+            self.assertEqual(rec.question["level"], 1)
+            self.assertEqual(rec.evidence_kind, "fresh")
+            picks.add(rec.passage["id"])
+        self.assertGreater(len(picks), 1)
+
+    def test_review_round_cap(self):
+        first = recommend(self.content, self.store, rng=random.Random(1))
+        concept = first.question["concept"]
         rid = self.typed()
         self.store.show_question(rid, first.question, ["a", "b", "c"], "fresh")
         self.store.answer(rid, first.question, "b", 1)
         review = recommend(self.content, self.store, review_streak=1)
-        self.assertEqual(review.question["concept"], "molecules")
+        self.assertEqual(review.question["concept"], concept)
         new_work = recommend(self.content, self.store, review_streak=2)
-        self.assertNotEqual(new_work.question["concept"], "molecules")
+        self.assertNotEqual(new_work.question["concept"], concept)
 
     def test_exhausted_bank_and_delayed_reassessment(self):
         for q in self.content.questions.values():

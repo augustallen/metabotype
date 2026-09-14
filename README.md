@@ -56,7 +56,7 @@ For phone testing, use an HTTPS host or an HTTPS development setup. A plain HTTP
 
 **Typing speed.** WPM is correct characters ÷ 5 ÷ active minutes. Pauses don't count against you, but deleting and retyping can't add speed. Accuracy is based on your first attempt at each character.
 
-**Understanding.** Each topic has four levels: 1 Recognize, 2 Explain, 3 Apply, 4 Evaluate. Answer enough questions correctly to move up; repeated misses bring extra review. Questions come back for review after a day, then a week.
+**Understanding.** Each topic has four levels: 1 Recognize, 2 Explain, 3 Apply, 4 Evaluate. Answer enough questions correctly to move up; repeated misses bring extra review. Questions come back for review after a day, then a week. Within a level, the next round is picked at random from the passages you haven't practiced yet, so a new game doesn't always open the same way.
 
 **Field notebook.** Two graphs per topic, daily WPM and understanding level, over 30 days, 90 days, 1 year, or all time. Rounds record whether they were typed on a phone or a physical keyboard, and the notebook can show either alone so the two speeds don't mix.
 
