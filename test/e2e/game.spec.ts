@@ -97,24 +97,27 @@ test('separator space advances and saves a checkpoint', async ({ page }, info) =
   expect(round.metrics?.accepted_count).toBe(first.length + 1)
 })
 
-test('backspace and word delete repair real input', async ({ page }, info) => {
-  test.skip(mobile(info.project.name), 'Desktop keyboard flow')
-  const { rid, text } = await begin(page)
-  const prefix = text.split(' ', 1)[0] + ' '
-  await page.keyboard.type('x')
-  await page.keyboard.press('Backspace')
-  await page.keyboard.type(prefix + 'wrong')
-  await expect(page.getByText('Backspace to fix')).toBeVisible()
-  await page.keyboard.press(process.platform === 'darwin' || info.project.name === 'webkit' ? 'Alt+Backspace' : 'Control+Backspace')
-  await page.keyboard.type(text.slice(prefix.length))
-  await expect(page.getByRole('heading', { name: 'Question' })).toBeVisible()
-  const m = (await roundById(page, rid)).round.metrics!
-  expect(m.backspaces).toBe(1)
-  expect(m.word_deletions).toBe(1)
-  expect(m.deleted_characters).toBe(6)
-  expect(m.accepted_count).toBe(text.length)
-  expect(m.accuracy).toBeLessThan(100)
-})
+for (const chord of ['Alt+Backspace', 'Control+Backspace']) {
+  test(`backspace and ${chord} repair real input`, async ({ page }, info) => {
+    test.skip(mobile(info.project.name), 'Desktop keyboard flow')
+    const { rid, text } = await begin(page)
+    const prefix = text.split(' ', 1)[0] + ' '
+    await page.keyboard.type('x')
+    await page.keyboard.press('Backspace')
+    await page.keyboard.type(prefix + 'wrong')
+    await expect(page.getByText('Backspace to fix')).toBeVisible()
+    // The game owns this chord, so it deletes a word on every OS and browser.
+    await page.keyboard.press(chord)
+    await page.keyboard.type(text.slice(prefix.length))
+    await expect(page.getByRole('heading', { name: 'Question' })).toBeVisible()
+    const m = (await roundById(page, rid)).round.metrics!
+    expect(m.backspaces).toBe(1)
+    expect(m.word_deletions).toBe(1)
+    expect(m.deleted_characters).toBe(6)
+    expect(m.accepted_count).toBe(text.length)
+    expect(m.accuracy).toBeLessThan(100)
+  })
+}
 
 test('double-space shortcut completes the round without mistakes', async ({ page }, info) => {
   const { rid, text } = await begin(page)

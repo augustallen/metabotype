@@ -16,6 +16,9 @@ export interface FieldHandlers {
   onKey229(): void
 }
 
+/** Keys we synthesise ourselves edit no text, so they carry no input statistics. */
+const NO_EDIT: Reconciled = Object.freeze({ keys: [], paste: false, assisted: 0, multi: 0, normalized: 0 })
+
 export class TypingField {
   private last = ''
   private composing = false
@@ -122,8 +125,17 @@ export class TypingField {
     if (event.key === 'Escape' || event.key === 'F1' || event.key === 'Enter') {
       event.preventDefault()
       this.handlers?.onControl(event.key)
+      return
     }
-    // Ctrl/Alt+Backspace arrive as deleteWordBackward input events; nothing to do here.
+    // Word delete belongs to the game, not the OS. Browsers bind the chord to
+    // whatever the platform says: macOS turns Ctrl+Backspace into a single
+    // character and Linux ignores Alt+Backspace, so the shortcut the help
+    // promises only works everywhere if we emit it ourselves.
+    if (event.key === 'Backspace' && (event.altKey || event.ctrlKey)) {
+      event.preventDefault()
+      this.handlers?.onKeys(['WORD_BACKSPACE'], NO_EDIT)
+      this.resync()
+    }
   }
 
   private onSelectionChange = () => {
