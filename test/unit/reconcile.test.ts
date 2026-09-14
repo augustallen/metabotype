@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { capitalizeSentenceStart, normalizeText, reconcile, wordDelete } from '../../src/input/reconcile.ts'
+import { normalizeText, reconcile, sentenceCase, wordDelete } from '../../src/input/reconcile.ts'
 import { TypingState } from '../../src/core/typing.ts'
 
 /** Drive a TypingState the way the field controller does: mirror, edit, diff, feed. */
@@ -100,15 +100,13 @@ describe('reconcile', () => {
     expect(reconcile('a', 'ab', 'insertCompositionText').multi).toBe(0)
   })
 
-  it('a swiped word starting a sentence gets its capital', () => {
-    expect(capitalizeSentenceStart(['s', 'u', 'g', 'a', 'r', 's', ' '], '', 'S')).toEqual({ keys: ['S', 'u', 'g', 'a', 'r', 's', ' '], normalized: 1 })
-    expect(capitalizeSentenceStart(['i', 'n'], '', 'I').keys).toEqual(['I', 'n'])
-    // Already capitalized, mid-sentence, a single tapped key, or a different letter: untouched.
-    expect(capitalizeSentenceStart(['S', 'u', 'g'], '', 'S').normalized).toBe(0)
-    expect(capitalizeSentenceStart(['f', 'l', 'o', 'w'], 'Sugars ', 'f').normalized).toBe(0)
-    expect(capitalizeSentenceStart(['s'], '', 'S')).toEqual({ keys: ['s'], normalized: 0 })
-    expect(capitalizeSentenceStart(['t', 'h', 'e'], '', 'S')).toEqual({ keys: ['t', 'h', 'e'], normalized: 0 })
-    expect(capitalizeSentenceStart(['.', '.'], '', '.').normalized).toBe(0)
+  it('a lowercase letter at the start of a sentence becomes its capital', () => {
+    expect(sentenceCase('s', '', 'S')).toBe('S')
+    // Already capitalized, mid-sentence, a different letter, or a control key: untouched.
+    expect(sentenceCase('S', '', 'S')).toBe('S')
+    expect(sentenceCase('s', 'Su', 'S')).toBe('s')
+    expect(sentenceCase('t', '', 'S')).toBe('t')
+    expect(sentenceCase('BACKSPACE', '', 'B')).toBe('BACKSPACE')
   })
 
   it('a full passage typed through the field scores exactly like the terminal', () => {

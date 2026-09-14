@@ -49,17 +49,12 @@ export function normalizeText(text: string): { keys: string[]; normalized: numbe
 }
 
 /**
- * Swipe and predictive keyboards don't reliably capitalize a new sentence, since the field is
- * cleared at every sentence break. When one edit inserts a word at the start of a sentence and its
- * first letter differs from the target only by case, that is the keyboard's casing: fix it.
- * A single typed key is left alone, so a tapped lowercase letter still counts as a mistake.
+ * Phone keyboards don't reliably capitalize a new sentence, since the field is cleared at every
+ * sentence break, and swiped words may arrive one letter at a time. A lowercase letter typed
+ * where the sentence's capital belongs is taken as that capital, however it arrived.
  */
-export function capitalizeSentenceStart(keys: string[], buffer: string, expected: string): { keys: string[]; normalized: number } {
-  const first = keys[0]
-  if (buffer !== '' || keys.length < 2 || first === expected || first.toUpperCase() !== expected) {
-    return { keys, normalized: 0 }
-  }
-  return { keys: [expected, ...keys.slice(1)], normalized: 1 }
+export function sentenceCase(key: string, buffer: string, expected: string): string {
+  return buffer === '' && key !== expected && key.toUpperCase() === expected ? expected : key
 }
 
 /** The game's own word delete, used to recognise OS word deletes. */

@@ -48,7 +48,7 @@ For phone testing, use an HTTPS host or an HTTPS development setup. A plain HTTP
 - Mistakes stay on screen until you delete them.
 - Type the space after a sentence's final punctuation to move to the next sentence. No Enter needed.
 - Shortcut: press Space twice when a sentence's final period is next. Your phone's own ". " double-space shortcut counts too.
-- Swipe typing: if your keyboard leaves a sentence's first word lowercase, the capital is added for you.
+- If a sentence's first letter comes out lowercase (swipe keyboards often do this), the capital is filled in for you.
 - Pasting voids the round.
 - Progress saves automatically on the device you play on.
 
