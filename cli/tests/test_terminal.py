@@ -60,12 +60,23 @@ class Terminal:
         if self.process.poll() is None:
             self.process.terminate()
             try:
-                self.process.wait(2)
+                self.wait_exit(2)
             except subprocess.TimeoutExpired:
                 self.process.kill()
                 self.process.wait()
         os.close(self.master)
         os.close(self.slave)
+
+    def wait_exit(self, timeout=3):
+        # A real terminal consumes output while curses drains it during teardown.
+        # Waiting without reading can deadlock the child on macOS PTYs.
+        deadline = time.monotonic() + timeout
+        while self.process.poll() is None:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise subprocess.TimeoutExpired(self.process.args, timeout)
+            self.pump(min(0.05, remaining))
+        return self.process.returncode
 
 
 class TerminalTests(unittest.TestCase):
@@ -83,6 +94,17 @@ class TerminalTests(unittest.TestCase):
         db.row_factory = sqlite3.Row
         self.addCleanup(db.close)
         return db
+
+    def assert_terminal_restored(self):
+        after = termios.tcgetattr(self.t.slave)
+        before = list(self.t.before)
+        if sys.platform == 'darwin':
+            # XNU sets PENDIN when restoring ICANON. It is transient input
+            # queue state, cleared by the next read, not a changed setting.
+            # https://github.com/apple-oss-distributions/xnu/blob/main/bsd/kern/tty.c
+            after[3] &= ~termios.PENDIN
+            before[3] &= ~termios.PENDIN
+        self.assertEqual(after, before)
 
     def begin(self):
         self.t.send('p')
@@ -120,8 +142,8 @@ class TerminalTests(unittest.TestCase):
         start = len(self.t.output)
         self.t.read_until(b'[P] Play', start=start)
         self.t.send('q')
-        self.assertEqual(self.t.process.wait(3), 0)
-        self.assertEqual(termios.tcgetattr(self.t.slave), self.t.before)
+        self.assertEqual(self.t.wait_exit(), 0)
+        self.assert_terminal_restored()
 
     def test_paste_cannot_score_or_inject_menu_commands(self):
         rid, p = self.begin()
@@ -200,8 +222,8 @@ class TerminalTests(unittest.TestCase):
         self.t.send(p['text'][:8])
         time.sleep(0.1)
         self.t.process.send_signal(signal.SIGINT)
-        self.assertEqual(self.t.process.wait(3), 130)
-        self.assertEqual(termios.tcgetattr(self.t.slave), self.t.before)
+        self.assertEqual(self.t.wait_exit(), 130)
+        self.assert_terminal_restored()
         row = self.db().execute('SELECT status,metrics FROM rounds WHERE id=?', (rid,)).fetchone()
         self.assertEqual(row['status'], 'aborted')
         self.assertEqual(json.loads(row['metrics'])['accepted_count'], 8)

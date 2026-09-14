@@ -3,14 +3,17 @@
 > Status (2026-09-13): implemented in this repository on the `web` branch. The project kept the name
 > Metabotype and lives in the original repo with the terminal game under `cli/`. PLAN.md records what
 > shipped; this document keeps the design reasoning and the review notes.
+> Editorial update (2026-09-13): every passage now has five sentences. The five longer passages
+> were shortened to 50–52 words; validators allow 50–90 words. The original length target below
+> remains part of the design history.
 
 ## Context
 
 Metabotype (`~/Projects/metabotype`) is a Python curses + SQLite terminal game. You type a 60–90 word metabolomics passage sentence by sentence, answer an adaptive multiple-choice question, and track WPM and understanding in a field notebook. It needs an 80×24 terminal and a physical keyboard, so nobody can play it on a phone. Metabotyper is a hostable website that plays well with a phone's on-screen keyboard and is also first-class on desktop. It keeps the game's scoring, learning rules and reviewed content exactly as they are.
 
 **Decisions made**
-- **Project:** `~/Projects/metabotyper`, cloned from the terminal game with full history. The `upstream` remote points at github.com/augustallen/metabotype. The new GitHub repo will be `augustallen/metabotyper` (added as `origin`).
-- **The terminal game lives on inside this repo** as `cli/`, sharing `content/curriculum.json`. The plan is for Metabotyper to become the single home of both versions, so nothing Python gets deleted. The in-game brand stays "metabotype" (logo, tagline) unless you decide otherwise; "Metabotyper" is the repo and site name.
+- **Project:** `~/Projects/metabotype`, using the existing `augustallen/metabotype` GitHub repository and its `web` branch. The earlier separate-repository proposal was dropped; the app and site keep the name Metabotype.
+- **The terminal game lives on inside this repo** as `cli/`, sharing `content/curriculum.json` with the web game.
 - **Stack:** static TypeScript with Vite and Preact (+ signals), no backend, no client-side router (screens are state, exactly as in the curses app). `curriculum.json` is reused byte-for-byte. The Python tests are the behavioral spec.
 - **Progress** stays on the device, no accounts. CSV export plus JSON backup/restore.
 - **Input:** phone on-screen keyboard is primary; desktop keeps Esc, F1, arrows, 1–4, Enter.
@@ -120,10 +123,16 @@ Tokens 150/220/320ms, one standard and one emphasized easing; only transform/opa
 
 ## 6. Hosting: Cloudflare Pages
 
-- Connect `augustallen/metabotyper`; build `npm run build`, output `dist`, `base: './'`.
-- `public/_headers`: `no-cache` for `/index.html` and `/sw.js`; `immutable` for `/assets/*`.
-- Preview deploys on every branch are the real-phone test loop. Optional: Cloudflare Web Analytics (cookie-free) later; none in v1.
-- GitHub Pages remains a drop-in fallback since the build is a plain static folder.
+Deployment plan agreed 2026-09-13; hosting has not been configured or deployed yet.
+
+1. **Save the release candidate.** Commit and push the latest code, tests, and this plan to `web` in `augustallen/metabotype`. Run the existing CI checks before deployment.
+2. **Publish an HTTPS preview.** Connect that GitHub repository to Cloudflare Pages, with `main` as the production branch and preview deployments enabled for `web`. Use the repository root, Node 22, build command `npm run build`, and output directory `dist`. Keep the existing relative asset base (`./`) and `public/_headers` caching rules. Scope the GitHub connection to this repository.
+3. **Check the hosted game.** On the preview URL, verify first-load keyboard control, arrow selection, Enter confirmation, five sentences before each question, real-phone typing, and saved progress after reload. Check pause/recovery, offline play after the first visit, and backup/restore before launch. Preview and production URLs have separate browser histories; use JSON export/import to move test progress if wanted.
+4. **Launch.** After the preview checks, merge `web` into `main` to publish the production site. Start with the assigned `pages.dev` address; a custom domain can follow. Future production-branch pushes deploy automatically. Record the live URL in README.md after deployment succeeds.
+
+This is a static site: no backend, accounts, or hosted database are needed. Progress stays in each player's browser. Keep analytics and additional game modes out of this launch; GitHub Pages remains a fallback.
+
+Configuration reference: [Cloudflare Pages Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/).
 
 ## 7. Build phases and acceptance checks
 

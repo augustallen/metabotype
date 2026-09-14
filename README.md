@@ -2,7 +2,7 @@
 
 ![Metabotype — Small molecules. Steady fingers. A retro terminal surrounded by molecular motifs.](assets/readme-banner.png)
 
-**Small molecules. Steady fingers.** Type a short passage, answer a metabolomics question, and watch your progress in the field notebook.
+**Small molecules. Steady fingers.** Type five sentences, answer a metabolomics question, and watch your progress in the field notebook.
 
 Metabotype comes in two forms that share one curriculum:
 
@@ -15,10 +15,14 @@ Open the hosted site, or run it locally:
 
 ```bash
 npm install
-npm run dev          # http://localhost:5173, add --host to reach it from a phone on your network
+npm run dev          # http://localhost:5173
 ```
 
 `npm run build` writes a static `dist/` that any web host can serve. Cloudflare Pages settings: build command `npm run build`, output directory `dist`.
+
+Hosting is planned but not deployed yet. See the [launch plan](WEB_PLAN.md#6-hosting-cloudflare-pages): preview from `web`, check the hosted game, then release from `main`.
+
+For phone testing, use an HTTPS host or an HTTPS development setup. A plain HTTP address on your local network cannot provide the exclusive history access the app requires.
 
 ### Controls
 
@@ -52,7 +56,7 @@ The game includes two topics, ten passages, and eighty questions.
 
 The web version keeps history in the browser's IndexedDB on the device you play on. There are no accounts and nothing is sent anywhere. **Data & backup** on the home screen exports CSV files (the same columns as the terminal version's `export` command), downloads a JSON backup, and restores from one. Ask the browser to keep the history permanently from that screen; on iPhone, adding the site to the Home Screen also stops Safari from clearing it after a week away.
 
-If Metabotype is open in two tabs, only one saves at a time; the other offers to take over.
+If Metabotype is open in two tabs, only one saves at a time; the other offers to take over. This requires Web Locks, available in current browsers over HTTPS (or localhost for development). If the browser cannot provide exclusive access, the game explains the requirement and does not open or modify history.
 
 ## Development
 

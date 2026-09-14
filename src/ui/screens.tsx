@@ -1,11 +1,11 @@
 /** Every screen of the game. Each one reads signals from Game and registers its own desktop shortcuts. */
-import { useEffect, useMemo, useState } from 'preact/hooks'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { LEVELS } from '../core/learning.ts'
 import { msUntilLocalMidnight, stamp } from '../core/time.ts'
 import { Store } from '../storage/store.ts'
 import { questionAttemptsCsv, roundsCsv, exportStamp } from '../storage/export.ts'
 import { makeBackup, parseBackup } from '../storage/backup.ts'
-import { requestPersistence, storageStatus, writeModel, openDatabase, type StorageStatus } from '../storage/persist.ts'
+import { requestPersistence, storageStatus, type StorageStatus } from '../storage/persist.ts'
 import { HISTORY_RANGES, type Game, type InputMethod } from './game.ts'
 import { Button, Frame, Kbd, Page, Sheet, metric } from './components.tsx'
 import { useFinePointer, useKeys } from './hooks.ts'
@@ -21,10 +21,24 @@ export function Home({ game }: { game: Game }) {
     ['h', 'Field notebook', () => game.navigate('notebook')],
   ]
   const [selected, setSelected] = useState(0)
+  const buttons = useRef<(HTMLButtonElement | null)[]>([])
+  useLayoutEffect(() => {
+    // Give the initial menu a keyboard target, including when a reload restores
+    // focus to the inactive typing field. Preserve focus on other controls.
+    const active = document.activeElement
+    if (!active || active === document.body || active === document.documentElement || active === game.field.el) {
+      buttons.current[0]?.focus({ preventScroll: true })
+    }
+  }, [])
+  const move = (step: number) => {
+    const focused = buttons.current.findIndex((button) => button === document.activeElement)
+    const next = ((focused >= 0 ? focused : selected) + step + items.length) % items.length
+    buttons.current[next]?.focus()
+  }
   useKeys((e) => {
     const key = e.key.toLowerCase()
-    if (key === 'arrowdown' || key === 'j') { setSelected((s) => (s + 1) % items.length); return true }
-    if (key === 'arrowup' || key === 'k') { setSelected((s) => (s + items.length - 1) % items.length); return true }
+    if (key === 'arrowdown' || key === 'j') { move(1); return true }
+    if (key === 'arrowup' || key === 'k') { move(-1); return true }
     if (key === 'enter') { items[selected][2](); return true }
     if (key === '?') { game.openHelp(); return true }
     const item = items.find((x) => x[0] === key)
@@ -41,7 +55,8 @@ export function Home({ game }: { game: Game }) {
       <nav class="menu" aria-label="Main menu">
         {items.map(([key, title, action], i) => (
           <button key={key} type="button" class={`menu-item ${i === selected ? 'selected' : ''}`}
-            onClick={action} onMouseEnter={() => setSelected(i)}>
+            ref={(button) => { buttons.current[i] = button }}
+            onClick={action} onFocus={() => setSelected(i)} onMouseEnter={() => setSelected(i)}>
             <span class="menu-key">{key.toUpperCase()}</span>
             <span class="menu-title">{title}</span>
           </button>
@@ -81,6 +96,12 @@ function useInstallHint(game: Game): (() => void) | null {
 export function Topics({ game }: { game: Game }) {
   const ids = Object.keys(game.content.topics)
   const [selected, setSelected] = useState(Math.max(0, ids.indexOf(game.topic.value ?? '')))
+  const buttons = useRef<(HTMLButtonElement | null)[]>([])
+  const move = (step: number) => {
+    const focused = buttons.current.findIndex((button) => button === document.activeElement)
+    const next = ((focused >= 0 ? focused : selected) + step + ids.length) % ids.length
+    buttons.current[next]?.focus()
+  }
   const choose = (tid: string) => {
     game.topic.value = tid
     game.play(tid)
@@ -88,10 +109,10 @@ export function Topics({ game }: { game: Game }) {
   useKeys((e) => {
     const key = e.key.toLowerCase()
     if (key === 'escape') { game.navigate('home'); return true }
-    if (key === 'arrowdown' || key === 'j') { setSelected((s) => (s + 1) % ids.length); return true }
-    if (key === 'arrowup' || key === 'k') { setSelected((s) => (s + ids.length - 1) % ids.length); return true }
+    if (key === 'arrowdown' || key === 'j') { move(1); return true }
+    if (key === 'arrowup' || key === 'k') { move(-1); return true }
     if (key === 'enter') { choose(ids[selected]); return true }
-    if (/^[1-9]$/.test(key) && Number(key) <= ids.length) { setSelected(Number(key) - 1); return true }
+    if (/^[1-9]$/.test(key) && Number(key) <= ids.length) { buttons.current[Number(key) - 1]?.focus(); return true }
     if (key === '?') { game.openHelp(); return true }
     return false
   }, [selected])
@@ -103,7 +124,8 @@ export function Topics({ game }: { game: Game }) {
           const state = game.store.state(tid)
           return (
             <button key={tid} type="button" class={`card ${i === selected ? 'selected' : ''}`} onClick={() => choose(tid)}
-              onMouseEnter={() => setSelected(i)}>
+              ref={(button) => { buttons.current[i] = button }}
+              onFocus={() => setSelected(i)} onMouseEnter={() => setSelected(i)}>
               <span class="card-number">{topic.number}</span>
               <span class="card-title">{topic.title}</span>
               <span class="card-subtitle">{topic.subtitle}</span>
@@ -218,14 +240,26 @@ export function PauseSheet({ game }: { game: Game }) {
 export function Quiz({ game }: { game: Game }) {
   const round = game.round.value
   const quiz = game.quiz.value
+  const buttons = useRef<(HTMLButtonElement | null)[]>([])
+  const select = (index: number) => {
+    const current = game.quiz.value
+    if (!current) return
+    game.select(current.order[index])
+    buttons.current[index]?.focus()
+  }
   useKeys((e) => {
-    if (!quiz) return false
+    const currentQuiz = game.quiz.value
+    if (!currentQuiz) return false
     const key = e.key.toLowerCase()
-    if (/^[1-4]$/.test(key) && Number(key) <= quiz.order.length) { game.select(quiz.order[Number(key) - 1]); return true }
-    if (key === 'arrowdown' || key === 'arrowup') {
-      const current = quiz.selected ? quiz.order.indexOf(quiz.selected) : -1
-      const next = (current + (key === 'arrowdown' ? 1 : -1) + quiz.order.length) % quiz.order.length
-      game.select(quiz.order[next])
+    if (/^[1-4]$/.test(key) && Number(key) <= currentQuiz.order.length) { select(Number(key) - 1); return true }
+    if (key === 'arrowdown' || key === 'arrowup' || key === 'arrowright' || key === 'arrowleft') {
+      const focused = buttons.current.findIndex((button) => button === document.activeElement)
+      const current = focused >= 0 ? focused : currentQuiz.order.indexOf(currentQuiz.selected ?? '')
+      const forward = key === 'arrowdown' || key === 'arrowright'
+      const next = current < 0
+        ? (forward ? 0 : currentQuiz.order.length - 1)
+        : (current + (forward ? 1 : -1) + currentQuiz.order.length) % currentQuiz.order.length
+      select(next)
       return true
     }
     if (key === 'enter') { game.confirm(); return true }
@@ -250,7 +284,15 @@ export function Quiz({ game }: { game: Game }) {
       <div class="options" role="radiogroup" aria-label="Answers">
         {quiz.order.map((oid, i) => (
           <button key={oid} type="button" role="radio" aria-checked={quiz.selected === oid}
-            class={`option ${quiz.selected === oid ? 'selected' : ''}`} onClick={() => game.select(oid)}>
+            ref={(button) => { buttons.current[i] = button }}
+            class={`option ${quiz.selected === oid ? 'selected' : ''}`} onClick={() => game.select(oid)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.isComposing && !e.metaKey && !e.ctrlKey && !e.altKey) {
+                e.preventDefault()
+                game.select(oid)
+                game.confirm()
+              }
+            }}>
             <span class="option-number">{i + 1}</span>
             <span class="option-text">{opts[oid].text}</span>
           </button>
@@ -350,7 +392,7 @@ export function Notebook({ game }: { game: Game }) {
     if (key === 'escape') { game.navigate('home'); return true }
     if (key === 'arrowright') { game.setHistoryRange(range + 1); return true }
     if (key === 'arrowleft') { game.setHistoryRange(range - 1); return true }
-    if (key === 'tab' || key === 't') { setTid(topics[(topics.indexOf(tid) + 1) % topics.length]); return true }
+    if (key === 't') { setTid(topics[(topics.indexOf(tid) + 1) % topics.length]); return true }
     if (key === 'enter') { game.topic.value = tid; game.navigate('rounds'); return true }
     if (key === '?') { game.openHelp(); return true }
     return false
@@ -507,10 +549,12 @@ export function Data({ game }: { game: Game }) {
   const exportCsv = async (which: 'rounds' | 'question-attempts') => {
     const text = which === 'rounds' ? roundsCsv(game.store.model) : questionAttemptsCsv(game.store.model)
     const how = await deliver([{ name: `metabotype-${which}-${exportStamp()}.csv`, text, type: 'text/csv' }], 'Metabotype history')
+    if (how === 'canceled') { setMessage('Export canceled.'); return }
     setMessage(how === 'shared' ? `Shared ${which}.csv.` : `Downloaded ${which}.csv.`)
   }
   const backup = async () => {
     const how = await deliver([{ name: `metabotype-backup-${exportStamp()}.json`, text: JSON.stringify(makeBackup(game.store.model)), type: 'application/json' }], 'Metabotype backup')
+    if (how === 'canceled') { setMessage('Backup canceled.'); return }
     game.store.setMeta({ last_backup: Date.now() / 1000 })
     setMessage(how === 'shared' ? 'Backup shared.' : 'Backup downloaded.')
   }
@@ -525,13 +569,13 @@ export function Data({ game }: { game: Game }) {
       setMessage(`Could not read that file: ${(error as Error).message}`)
       return
     }
-    const ok = window.confirm(`Replace all history on this device with the backup (${model.rounds.length} rounds)? A copy of the current history downloads first.`)
+    const ok = window.confirm(`Replace all history on this device with the backup (${model.rounds.length} rounds)? Save a copy of the current history first to continue.`)
     if (!ok) return
-    await deliver([{ name: `metabotype-before-restore-${exportStamp()}.json`, text: JSON.stringify(makeBackup(game.store.model)), type: 'application/json' }], 'Metabotype backup')
+    const how = await deliver([{ name: `metabotype-before-restore-${exportStamp()}.json`, text: JSON.stringify(makeBackup(game.store.model)), type: 'application/json' }], 'Metabotype backup')
+    if (how === 'canceled') { setMessage('Restore canceled. Your history has not changed.'); return }
+    if (game.readonly.value) return
     try {
-      const db = await openDatabase()
-      await writeModel(db, model)
-      db.close()
+      await game.restoreHistory(model)
     } catch (error) {
       setMessage(`Restore failed: ${(error as Error).message}`)
       return

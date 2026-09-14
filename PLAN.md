@@ -5,13 +5,15 @@ CONTENT_REVIEW.md for scientific review notes, and tests/ for acceptance checks.
 
 ## Web version (2026-09-13)
 
+- Passages now contain five sentences each. Five passages were shortened to 50–52 words to reduce typing time; the shared web and terminal validators allow 50–90 words. The original 60–90 word target below remains part of the design history.
 - The repository now holds both versions: the terminal game under `cli/` and a static web app at the root, sharing `content/curriculum.json`. The Python engine is the parity oracle: `cli/tools/gen_fixtures.py` records hundreds of scripted typing sessions and the TypeScript port must reproduce every buffer, position and counter (`npm run fixtures`, `npm test`).
 - Scoring, learning rules, recommendations and history queries are unchanged; `scoring_version` stays 3. Rounds record `input_method` (phone keyboard or physical keyboard) plus assisted, multi-character and normalized insertion counts, and the notebook can filter by device so the two speeds never mix.
-- History is one document in the browser's IndexedDB, replaced whole on every mutation; a failed mutation changes nothing. One tab owns the history at a time (Web Locks, BroadcastChannel fallback); a second tab may take over. Checkpoints are written at sentence boundaries and when the app goes to the background. Interrupted rounds are recovered on load exactly as the CLI does.
+- History is one document in the browser's IndexedDB, replaced whole on every mutation; a failed mutation changes nothing. One tab owns the history at a time using Web Locks; a second tab may take over. HTTPS or localhost and Web Locks support are required; unsupported browsers stop before opening history. Checkpoints are written at sentence boundaries and when the app goes to the background. Interrupted rounds are recovered on load exactly as the CLI does.
 - Phone typing uses a hidden text field mirrored from the sentence buffer; each input event is diffed into keystrokes. A phone's automatic ". " on double space is treated as the game's own double-space shortcut. Paste and drop void the round. The timer pauses when the keyboard closes, the field blurs, or the app is hidden; resuming needs an explicit tap. `?debug=input` records raw keyboard events for replay in tests.
-- Exports keep the CLI's CSV columns. JSON backups restore by replacing everything, after an automatic backup download.
-- Verification: Vitest parity and unit tests; Playwright suites mirroring `cli/tests/test_terminal.py` on desktop Chromium/WebKit and Pixel/iPhone profiles, including offline play and a 320px width check. WebKit runs in CI (it needs system libraries this development machine lacks).
-- Still to do: play on real phones (iOS Safari, Android Chrome with Gboard) via a Cloudflare preview URL and commit any captured input traces to `test/fixtures/input/`; connect Cloudflare Pages (build `npm run build`, output `dist`); consider a light theme.
+- Exports keep the CLI's CSV columns. Validated JSON backups restore by replacing everything after a safety backup; canceling that backup cancels the restore. Restore writes are serialized with pending saves.
+- Keyboard controls work on first load; menu and answer highlights update immediately, and Enter confirms the focused quiz answer.
+- Verification: Vitest parity and unit tests; Playwright suites mirroring `cli/tests/test_terminal.py` on desktop Chromium/WebKit and Pixel/iPhone profiles, including offline play and a 320px width check. Local browser checks include keyboard-only startup and answer confirmation.
+- Next: push the release candidate to `web`, connect Cloudflare Pages for an HTTPS preview, check real-phone typing and saved progress, then merge to `main` for launch. A custom domain can follow. Hosting is not deployed yet; [WEB_PLAN.md section 6](WEB_PLAN.md#6-hosting-cloudflare-pages) records the setup and acceptance checks.
 
 See WEB_PLAN.md for the design notes behind these choices.
 

@@ -53,7 +53,7 @@ export class Content {
         require(topics.has(p.topic), `Unknown topic in ${p.id}`)
         require(p.version >= 1 && p.concepts.length, `Missing metadata in ${p.id}`)
         const words = p.text.trim().split(/\s+/).length
-        require(words >= 60 && words <= 90, `Passage ${p.id} must have 60-90 words`)
+        require(words >= 50 && words <= 90, `Passage ${p.id} must have 50-90 words`)
         require([...p.text].every((c) => c.charCodeAt(0) >= 32 && c.charCodeAt(0) <= 126), `Non-ASCII text: ${p.id}`)
         require(p.sources.length && subset(p.sources, sources), `Invalid sources: ${p.id}`)
         require(subset(p.prerequisites, concepts), `Unknown prerequisites: ${p.id}`)

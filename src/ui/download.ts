@@ -1,6 +1,6 @@
 /** Hand files to the player: share sheet on phones when available, download otherwise. */
 
-export async function deliver(files: { name: string; text: string; type: string }[], title: string): Promise<'shared' | 'downloaded'> {
+export async function deliver(files: { name: string; text: string; type: string }[], title: string): Promise<'shared' | 'downloaded' | 'canceled'> {
   const blobs = files.map((f) => new File([f.text], f.name, { type: f.type }))
   const nav = navigator as Navigator & { canShare?: (data: ShareData) => boolean }
   if (nav.share && nav.canShare && nav.canShare({ files: blobs })) {
@@ -8,7 +8,7 @@ export async function deliver(files: { name: string; text: string; type: string 
       await nav.share({ files: blobs, title })
       return 'shared'
     } catch (error) {
-      if ((error as Error).name === 'AbortError') return 'shared'
+      if ((error as Error).name === 'AbortError') return 'canceled'
     }
   }
   for (const file of blobs) {

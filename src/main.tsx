@@ -4,7 +4,7 @@ import curriculum from '../content/curriculum.json'
 import { Content } from './core/content.ts'
 import { Store } from './storage/store.ts'
 import { loadModel, openDatabase, Saver } from './storage/persist.ts'
-import { acquireOwnership } from './storage/lock.ts'
+import { acquireOwnership, type OwnerLock } from './storage/lock.ts'
 import { createTypingField } from './input/typing-field.ts'
 import { attachRecorder, enabled as recorderEnabled } from './input/recorder.ts'
 import { Game } from './ui/game.ts'
@@ -19,32 +19,58 @@ const root = document.getElementById('app')!
 function fatal(message: string) {
   render(
     <Frame title="Metabotype can't start" bar={<Button primary onClick={() => location.reload()}>Try again</Button>}>
-      <div class="prose"><p>{message}</p><p>History is stored in this browser's IndexedDB. Private windows and some embedded browsers block it.</p></div>
+      <div class="prose"><p>{message}</p></div>
     </Frame>, root)
 }
 
 async function boot(steal = false): Promise<void> {
   const content = new Content(curriculum)
-  const field = createTypingField()
   let game: Game | null = null
-  const lock = await acquireOwnership({ steal, onLost: () => game?.lost() })
+  let saver: Saver | null = null
+  let lost = false
+  let lock: OwnerLock
+  try {
+    lock = await acquireOwnership({ steal, onLost: () => {
+      lost = true
+      saver?.stop()
+      game?.lost()
+    } })
+  } catch (error) {
+    fatal(`Could not secure history access: ${(error as Error).message}`)
+    return
+  }
   if (!lock.acquired) {
     render(<OtherTab lost={false} onUseHere={() => { void boot(true) }} />, root)
     return
   }
-  let db: IDBDatabase
+  let db: IDBDatabase | null = null
   let model
   try {
     db = await openDatabase()
     model = await loadModel(db)
   } catch (error) {
-    fatal((error as Error).message)
+    db?.close()
+    lock.release()
+    fatal(`Could not load history: ${(error as Error).message}. History is stored in this browser's IndexedDB. Private windows and some embedded browsers block it.`)
     return
   }
-  const saver = new Saver(db, (error) => { if (game) game.saveError.value = `Saving failed: ${error.message}. Export a backup soon.` })
-  const store = new Store(model, () => Date.now() / 1000, (m) => saver.save(m))
+  // A takeover can happen while IndexedDB is opening or loading. Do not start a stale session.
+  if (lost) {
+    db.close()
+    lock.release()
+    render(<OtherTab lost onUseHere={() => { void boot(true) }} />, root)
+    return
+  }
+  const field = createTypingField()
+  saver = new Saver(db, (error) => { if (game) game.saveError.value = `Saving failed: ${error.message}. Export a backup soon.` })
+  const store = new Store(model, () => Date.now() / 1000, (m) => saver!.save(m))
   const recovered = store.startSession()
-  game = new Game(content, store, field)
+  game = new Game(content, store, field, async (model) => {
+    await saver!.replace(model)
+    // pagehide must not save the old session over a successful import.
+    store.model = model
+    store.session = null
+  })
   if (recovered) game.notice.value = `Recovered ${recovered} unfinished round(s). Saved typing results are intact.`
   if (recorderEnabled()) mountRecorder(field.el)
   render(<App game={game} />, root)

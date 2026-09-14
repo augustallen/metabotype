@@ -30,11 +30,27 @@ describe('content', () => {
     expect(() => new Content({ version: 2, topics: [], passages: [], questions: [], sources: [] })).toThrow(/Unsupported/)
   })
 
-  it('every passage splits into at most six sentences of typeable ASCII', () => {
+  it('every passage splits into exactly five sentences of typeable ASCII', () => {
     for (const passage of Object.values(loadContent().passages)) {
       const state = new TypingState(passage.text)
-      expect(state.boundaries.length).toBeLessThanOrEqual(6)
+      expect(state.boundaries.length).toBe(5)
       expect(state.boundaries[state.boundaries.length - 1]).toBe(passage.text.length)
     }
+  })
+
+  it('shortened passages reduce typing volume as well as sentence count', () => {
+    const passages = loadContent().passages
+    for (const id of ['p-molecules', 'p-pathways', 'p-context', 'p-medication', 'p-confounding']) {
+      const words = passages[id].text.trim().split(/\s+/).length
+      expect(words).toBeGreaterThanOrEqual(50)
+      expect(words).toBeLessThanOrEqual(58)
+    }
+  })
+
+  it.each([49, 50, 90, 91])('enforces the 50-90 word range (%i words)', (words) => {
+    const c = loadContent()
+    c.data.passages[0].text = Array(words).fill('word').join(' ')
+    if (words < 50 || words > 90) expect(() => c.validate()).toThrow('must have 50-90 words')
+    else expect(() => c.validate()).not.toThrow()
   })
 })

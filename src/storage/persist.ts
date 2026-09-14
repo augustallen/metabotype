@@ -49,13 +49,39 @@ export function writeModel(db: IDBDatabase, model: Model): Promise<void> {
 export class Saver {
   private pending: Model | null = null
   private writing: Promise<void> | null = null
+  private stopped = false
+  private replacing = false
   failed: Error | null = null
 
   constructor(private db: IDBDatabase, private onError: (error: Error) => void = () => {}) {}
 
   save(model: Model): void {
+    if (this.stopped || this.replacing) return
     this.pending = model
     if (!this.writing) this.writing = this.drain()
+  }
+
+  /** Import through the same writer, so older queued state cannot overwrite the replacement. */
+  async replace(model: Model): Promise<void> {
+    if (this.stopped) throw new Error('History ownership was lost. Reload before restoring a backup.')
+    if (this.replacing) throw new Error('A backup is already being restored.')
+    this.replacing = true
+    try {
+      // Coalesce any queued old state into the replacement; the active transaction finishes first.
+      this.pending = model
+      if (!this.writing) this.writing = this.drain()
+      await this.flush()
+      if (this.stopped) throw new Error('History ownership was lost. Reload before restoring a backup.')
+      if (this.failed) throw this.failed
+    } finally {
+      this.replacing = false
+    }
+  }
+
+  /** Ownership was lost: let the current transaction finish, but never queue another. */
+  stop(): void {
+    this.stopped = true
+    this.pending = null
   }
 
   /** Resolves once every queued document has been written. */

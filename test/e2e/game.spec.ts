@@ -36,7 +36,7 @@ test('paste cannot score the round', async ({ page, context }, info) => {
   if (info.project.name === 'chromium') {
     await context.grantPermissions(['clipboard-read', 'clipboard-write'])
     await page.evaluate((t) => navigator.clipboard.writeText(t), text)
-    await page.keyboard.press('Control+v')
+    await page.keyboard.press('ControlOrMeta+v')
   } else {
     await page.locator('#typing-field').evaluate((el, t) => {
       const data = new DataTransfer()
@@ -105,7 +105,7 @@ test('backspace and word delete repair real input', async ({ page }, info) => {
   await page.keyboard.press('Backspace')
   await page.keyboard.type(prefix + 'wrong')
   await expect(page.getByText('Backspace to fix')).toBeVisible()
-  await page.keyboard.press(info.project.name === 'webkit' ? 'Alt+Backspace' : 'Control+Backspace')
+  await page.keyboard.press(process.platform === 'darwin' || info.project.name === 'webkit' ? 'Alt+Backspace' : 'Control+Backspace')
   await page.keyboard.type(text.slice(prefix.length))
   await expect(page.getByRole('heading', { name: 'Question' })).toBeVisible()
   const m = (await roundById(page, rid)).round.metrics!

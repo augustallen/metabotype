@@ -56,14 +56,14 @@
   "passages": [
     {
       "id": "p-molecules",
-      "version": 1,
+      "version": 2,
       "title": "Small things, big clues",
       "topic": "foundations",
       "concepts": [
         "molecules"
       ],
       "prerequisites": [],
-      "text": "A cell is busy with small molecules. Sugars, amino acids, and many lipids are examples of metabolites. These molecules can be ingredients, intermediate steps, or products of metabolism. Metabolomics studies many of them together. Think of a laboratory bench holding a collection of chemical clues. Each clue says something about the sample, but no single molecule tells the whole story of a living system.",
+      "text": "Cells contain small molecules such as sugars, amino acids, and many lipids. These metabolites can be ingredients, intermediate steps, or products of metabolism. Metabolomics studies many metabolites together. Measuring several together gives a broader view of the biological sample. No single molecule tells the whole story of a living system.",
       "sources": [
         "small",
         "intro"
@@ -85,14 +85,14 @@
     },
     {
       "id": "p-pathways",
-      "version": 1,
+      "version": 2,
       "title": "Follow the handoff",
       "topic": "foundations",
       "concepts": [
         "pathways"
       ],
       "prerequisites": [],
-      "text": "A metabolic pathway links chemical reactions. A product from one step can become a starting material for the next. Enzymes help these reactions take place. Picture a series of handoffs rather than a shelf of unrelated bottles. Measuring the amount of a molecule tells us what is present in the sample. By itself, that amount does not tell us the speed of every handoff in the pathway.",
+      "text": "A metabolic pathway links chemical reactions. Enzymes help these reactions take place. A product from one step can become a starting material for the next. Measuring a molecule's amount tells us what is present in a sample. That amount alone does not reveal how fast reactions move through the pathway.",
       "sources": [
         "dynamic"
       ]
@@ -114,14 +114,14 @@
     },
     {
       "id": "p-context",
-      "version": 1,
+      "version": 2,
       "title": "Genes meet the outside world",
       "topic": "foundations",
       "concepts": [
         "context"
       ],
       "prerequisites": [],
-      "text": "Metabolite patterns reflect influences from both genes and the environment. Food and other exposures can contribute to the chemistry of a sample. A pattern is therefore not simply a readout of a DNA sequence. Imagine two plants with similar genes growing under different conditions. Their chemical profiles may differ. To understand a result, keep the biological setting beside the molecular measurements rather than treating either one as the whole explanation.",
+      "text": "Metabolite patterns reflect both genes and the environment. Food and other exposures can change a sample's chemistry. A profile is not simply a readout of DNA. Plants with similar genes can have different profiles under different growing conditions. Interpreting a difference requires considering both the biological setting and the molecular measurements.",
       "sources": [
         "intro",
         "barnes"
@@ -144,14 +144,14 @@
     },
     {
       "id": "p-medication",
-      "version": 1,
+      "version": 2,
       "title": "Another entry in the notebook",
       "topic": "variation",
       "concepts": [
         "medication"
       ],
       "prerequisites": [],
-      "text": "Medication use is part of a sample's context. Drugs and their breakdown products can appear in biological measurements, and treatments can also influence metabolism. A study should record relevant medication information when interpreting profiles. A difference between groups may reflect treatment as well as the condition being studied. Good notes help separate possible explanations. A laboratory pattern alone does not tell a person to start, stop, or change a medicine.",
+      "text": "Medication use is part of a sample's context. Drugs and their breakdown products can appear in measurements, and treatments can influence metabolism. Studies should record relevant medication information. Group differences may reflect treatment as well as the condition studied. A laboratory pattern alone cannot guide starting, stopping, or changing a medicine.",
       "sources": [
         "barnes"
       ]
@@ -188,14 +188,14 @@
     },
     {
       "id": "p-confounding",
-      "version": 1,
+      "version": 2,
       "title": "The competing explanation",
       "topic": "variation",
       "concepts": [
         "confounding"
       ],
       "prerequisites": [],
-      "text": "A group difference is a clue, not a complete explanation. Suppose a study compares two groups that also differ in diet and collection time. Either factor might help explain a metabolite pattern. When another influence travels with the group label, it can make interpretation difficult. Careful design and relevant records help researchers examine these competing explanations. An observed association alone does not establish that the group label caused the chemical difference.",
+      "text": "A group difference is a clue, not a complete explanation. Groups may also differ in diet or collection time. These influences can help explain their metabolite patterns. Careful design and relevant records help researchers examine explanations that vary with group membership. An association alone does not establish what caused the chemical difference.",
       "sources": [
         "design",
         "barnes"

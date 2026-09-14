@@ -134,9 +134,9 @@ a { color: var(--teal); }
   min-height: 64px; padding: 12px 16px;
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
   cursor: pointer; text-align: left; touch-action: manipulation;
-  transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+  transition: transform 150ms ease;
 }
-.menu-item.selected, .menu-item:hover { border-color: var(--teal); background: var(--panel-2); }
+.menu-item.selected { border-color: var(--teal); background: var(--panel-2); }
 .menu-item:active { transform: scale(0.99); }
 .menu-key {
   font-family: var(--mono); font-size: 13px; color: var(--teal);
@@ -154,9 +154,9 @@ a { color: var(--teal); }
   display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto auto; column-gap: 14px;
   padding: 16px; text-align: left;
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
-  cursor: pointer; touch-action: manipulation; transition: border-color 150ms ease, transform 150ms ease;
+  cursor: pointer; touch-action: manipulation; transition: transform 150ms ease;
 }
-.card.selected, .card:hover { border-color: var(--teal); }
+.card.selected { border-color: var(--teal); }
 .card:active { transform: scale(0.99); }
 .card-number { grid-row: 1 / 4; font-family: var(--mono); color: var(--teal); font-size: 26px; align-self: start; }
 .card-title { font-size: 19px; font-weight: 700; }
@@ -222,7 +222,7 @@ a { color: var(--teal); }
   display: flex; gap: 12px; align-items: flex-start;
   min-height: 56px; padding: 12px 14px; text-align: left;
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
-  cursor: pointer; touch-action: manipulation; transition: border-color 150ms ease, background-color 150ms ease;
+  cursor: pointer; touch-action: manipulation;
 }
 .option.selected { border-color: var(--teal); background: var(--panel-2); }
 .option-number {
@@ -252,7 +252,6 @@ a { color: var(--teal); }
 .segmented button {
   flex: 1; min-height: 44px; border: 0; background: transparent; color: var(--muted); border-radius: 9px;
   cursor: pointer; position: relative; z-index: 1; font-size: 15px; touch-action: manipulation;
-  transition: color 150ms ease;
 }
 .segmented button.on { color: var(--ink); }
 .segmented.small button { min-height: 40px; font-size: 14px; }
@@ -261,7 +260,6 @@ a { color: var(--teal); }
   left: calc(4px + (100% - 8px - (var(--count) - 1) * 4px) / var(--count) * var(--index) + var(--index) * 4px);
   width: calc((100% - 8px - (var(--count) - 1) * 4px) / var(--count));
   background: var(--panel-2); border: 1px solid var(--line); border-radius: 9px;
-  transition: left 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .segmented:not(.ranges) button.on { background: var(--panel-2); }
 .chart { margin: 0 0 14px; background: var(--panel); border-radius: var(--radius); padding: 10px 10px 6px; }

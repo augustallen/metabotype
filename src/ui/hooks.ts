@@ -7,9 +7,11 @@ const stack: KeyHandler[] = []
 let listening = false
 
 function dispatch(event: KeyboardEvent): void {
-  if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) return
+  if (event.defaultPrevented || event.isComposing || event.metaKey || event.ctrlKey || event.altKey || event.key === 'Tab') return
   const target = event.target as HTMLElement | null
-  if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT')) return
+  if (target?.closest('input, textarea, select') || target?.isContentEditable) return
+  // Native activation belongs to the focused control, even if a screen also uses Enter.
+  if ((event.key === 'Enter' || event.key === ' ') && target?.closest('button, a[href], summary, [role="button"], [role="tab"], [role="radio"]')) return
   const top = stack[stack.length - 1]
   if (top && top(event)) event.preventDefault()
 }

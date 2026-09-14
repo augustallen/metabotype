@@ -33,7 +33,7 @@ class Content:
             for p in passages.values():
                 require(p["topic"] in topics, f"Unknown topic in {p['id']}")
                 require(p["version"] >= 1 and p["concepts"], f"Missing metadata in {p['id']}")
-                require(60 <= len(p["text"].split()) <= 90, f"Passage {p['id']} must have 60-90 words")
+                require(50 <= len(p["text"].split()) <= 90, f"Passage {p['id']} must have 50-90 words")
                 require(all(32 <= ord(c) <= 126 for c in p["text"]), f"Non-ASCII text: {p['id']}")
                 require(p["sources"] and set(p["sources"]) <= sources, f"Invalid sources: {p['id']}")
                 require(set(p["prerequisites"]) <= concepts, f"Unknown prerequisites: {p['id']}")

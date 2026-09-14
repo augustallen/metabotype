@@ -6,6 +6,74 @@ import { emptyModel } from '../../src/storage/model.ts'
 import { loadContent } from '../helpers.ts'
 
 describe('persistence', () => {
+  it('serializes an import after the active write and prevents old state replacing it', async () => {
+    globalThis.indexedDB = new IDBFactory()
+    const db = await openDatabase()
+    const saver = new Saver(db)
+    const marked = (marker: string) => ({ ...emptyModel(), meta: { marker } })
+    saver.save(marked('A: active'))
+    saver.save(marked('B: pending'))
+    const replacement = saver.replace(marked('C: imported'))
+    saver.save(marked('D: stale state during restore'))
+    await saver.flush()
+    expect((await loadModel(db))?.meta.marker).toBe('C: imported')
+    await replacement
+    db.close()
+  })
+
+  it('rejects an import when ownership is lost while flushing', async () => {
+    globalThis.indexedDB = new IDBFactory()
+    const db = await openDatabase()
+    const saver = new Saver(db)
+    saver.save({ ...emptyModel(), meta: { marker: 'active' } })
+    const replacement = saver.replace({ ...emptyModel(), meta: { marker: 'imported' } })
+    saver.stop()
+    await expect(replacement).rejects.toThrow(/ownership was lost/)
+    expect((await loadModel(db))?.meta.marker).toBe('active')
+    await expect(saver.replace(emptyModel())).rejects.toThrow(/ownership was lost/)
+    db.close()
+  })
+
+  it('rejects a second import while a replacement is in progress', async () => {
+    globalThis.indexedDB = new IDBFactory()
+    const db = await openDatabase()
+    const saver = new Saver(db)
+    const replacement = saver.replace({ ...emptyModel(), meta: { marker: 'first' } })
+    await expect(saver.replace(emptyModel())).rejects.toThrow(/already being restored/)
+    await replacement
+    expect((await loadModel(db))?.meta.marker).toBe('first')
+    db.close()
+  })
+
+  it('rejects failed imports and allows later saves', async () => {
+    globalThis.indexedDB = new IDBFactory()
+    const db = await openDatabase()
+    const saver = new Saver(db)
+    const poisoned = { ...emptyModel(), meta: { fn: () => 1 } } as unknown as ReturnType<typeof emptyModel>
+    await expect(saver.replace(poisoned)).rejects.toThrow()
+    saver.save({ ...emptyModel(), meta: { marker: 'recovered' } })
+    await saver.flush()
+    expect((await loadModel(db))?.meta.marker).toBe('recovered')
+    db.close()
+  })
+
+  it('drops queued and future saves after ownership is lost', async () => {
+    globalThis.indexedDB = new IDBFactory()
+    const db = await openDatabase()
+    const saver = new Saver(db)
+    const active = emptyModel()
+    active.meta.marker = 'active transaction'
+    saver.save(active)
+    const pending = emptyModel()
+    pending.meta.marker = 'stale pending write'
+    saver.save(pending)
+    saver.stop()
+    saver.save(pending)
+    await saver.flush()
+    expect((await loadModel(db))?.meta.marker).toBe('active transaction')
+    db.close()
+  })
+
   it('stores and reloads the document', async () => {
     globalThis.indexedDB = new IDBFactory()
     const db = await openDatabase()
@@ -27,7 +95,7 @@ describe('persistence', () => {
     globalThis.indexedDB = new IDBFactory()
     const db = await openDatabase()
     await writeModel(db, { ...emptyModel(), schema_version: 99 })
-    await expect(loadModel(db)).rejects.toThrow(/schema version/)
+    await expect(loadModel(db)).rejects.toThrow(/schema[ _]version/)
     db.close()
   })
 
@@ -44,7 +112,8 @@ describe('persistence', () => {
     saver.save(good)
     await saver.flush()
     expect((await loadModel(db))?.meta.ok).toBe(true)
-    expect(errors.length).toBeGreaterThanOrEqual(0)
+    expect(errors).toHaveLength(1)
+    expect(errors[0].name).toBe('DataCloneError')
     db.close()
   })
 })

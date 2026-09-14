@@ -6,6 +6,7 @@ import { recommend, type Recommendation } from '../core/practice.ts'
 import { shuffle } from '../core/rng.ts'
 import { TypingState, type TypingMetrics } from '../core/typing.ts'
 import type { Store } from '../storage/store.ts'
+import type { Model } from '../storage/model.ts'
 import { requestPersistence } from '../storage/persist.ts'
 import type { TypingField } from '../input/typing-field.ts'
 import type { Reconciled } from '../input/reconcile.ts'
@@ -63,6 +64,7 @@ export class Game {
   private reader: Signal<'typing' | 'idle'> = signal('idle')
 
   constructor(readonly content: Content, readonly store: Store, readonly field: TypingField,
+    readonly restoreHistory: (model: Model) => Promise<void>,
     readonly rng: () => number = Math.random) {
     const range = store.model.meta.history_range
     if (typeof range === 'number' && range >= 0 && range < HISTORY_RANGES.length) this.historyRange.value = range
