@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { normalizeText, reconcile, wordDelete } from '../../src/input/reconcile.ts'
+import { capitalizeSentenceStart, normalizeText, reconcile, wordDelete } from '../../src/input/reconcile.ts'
 import { TypingState } from '../../src/core/typing.ts'
 
 /** Drive a TypingState the way the field controller does: mirror, edit, diff, feed. */
@@ -98,6 +98,17 @@ describe('reconcile', () => {
     expect(fix.keys).toEqual(['BACKSPACE', 'BACKSPACE', 'BACKSPACE', 'h', 'e', ' '])
     expect(fix.assisted).toBe(1)
     expect(reconcile('a', 'ab', 'insertCompositionText').multi).toBe(0)
+  })
+
+  it('a swiped word starting a sentence gets its capital', () => {
+    expect(capitalizeSentenceStart(['s', 'u', 'g', 'a', 'r', 's', ' '], '', 'S')).toEqual({ keys: ['S', 'u', 'g', 'a', 'r', 's', ' '], normalized: 1 })
+    expect(capitalizeSentenceStart(['i', 'n'], '', 'I').keys).toEqual(['I', 'n'])
+    // Already capitalized, mid-sentence, a single tapped key, or a different letter: untouched.
+    expect(capitalizeSentenceStart(['S', 'u', 'g'], '', 'S').normalized).toBe(0)
+    expect(capitalizeSentenceStart(['f', 'l', 'o', 'w'], 'Sugars ', 'f').normalized).toBe(0)
+    expect(capitalizeSentenceStart(['s'], '', 'S')).toEqual({ keys: ['s'], normalized: 0 })
+    expect(capitalizeSentenceStart(['t', 'h', 'e'], '', 'S')).toEqual({ keys: ['t', 'h', 'e'], normalized: 0 })
+    expect(capitalizeSentenceStart(['.', '.'], '', '.').normalized).toBe(0)
   })
 
   it('a full passage typed through the field scores exactly like the terminal', () => {

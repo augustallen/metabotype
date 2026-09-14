@@ -153,6 +153,19 @@ test("a phone keyboard's automatic period counts as the second space", async ({ 
   expect(m.input_method).toBe('keyboard') // no virtual keyboard was seen in emulation
 })
 
+test('swiped words that start a sentence in lowercase still score as correct', async ({ page }) => {
+  const { rid, text } = await begin(page)
+  const lowered = text.replace(/(^|[.!?] +)([A-Z])/g, (_, gap: string, letter: string) => gap + letter.toLowerCase())
+  const sentences = text.split(/(?<=[.!?]) +/).length
+  // Word-sized insertions, the way a swipe keyboard commits each word.
+  await typeText(page, lowered, 'insert')
+  await expect(page.getByRole('heading', { name: 'Question' })).toBeVisible()
+  const m = (await roundById(page, rid)).round.metrics!
+  expect(m.accuracy).toBe(100)
+  expect(m.accepted_count).toBe(text.length)
+  expect(m.normalized_characters).toBe(sentences)
+})
+
 test('a second tab is told to wait, and can take over', async ({ page, context }) => {
   await page.goto('/')
   await expect(page.getByRole('button', { name: 'Play' })).toBeVisible()

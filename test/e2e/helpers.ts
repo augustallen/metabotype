@@ -23,7 +23,9 @@ export function readModel(page: Page): Promise<Model> {
 }
 
 export async function seedModel(page: Page, model: Model): Promise<void> {
-  await page.goto('/')
+  // Seed from a static same-origin file so the app is not running; its startup and pagehide
+  // saves would otherwise race the seed when the page loads slowly, as on a real host.
+  await page.goto('/icons/icon.svg')
   await page.evaluate((doc) => new Promise<void>((resolve, reject) => {
     const req = indexedDB.open('metabotype', 1)
     req.onupgradeneeded = () => req.result.createObjectStore('documents')
@@ -36,7 +38,7 @@ export async function seedModel(page: Page, model: Model): Promise<void> {
     }
     req.onerror = () => reject(req.error)
   }), model)
-  await page.reload()
+  await page.goto('/')
 }
 
 /** Press Play and return the round that started, with its passage text. */

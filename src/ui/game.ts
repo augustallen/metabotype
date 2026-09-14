@@ -9,7 +9,7 @@ import type { Store } from '../storage/store.ts'
 import type { Model } from '../storage/model.ts'
 import { requestPersistence } from '../storage/persist.ts'
 import type { TypingField } from '../input/typing-field.ts'
-import type { Reconciled } from '../input/reconcile.ts'
+import { capitalizeSentenceStart, type Reconciled } from '../input/reconcile.ts'
 
 export type Screen = 'home' | 'topics' | 'typing' | 'quiz' | 'results' | 'notebook' | 'rounds' | 'help' | 'data'
   | 'paste' | 'other-tab'
@@ -145,10 +145,12 @@ export class Game {
     const r = this.round.value
     if (!r || r.typing.complete || this.overlay.value !== 'none') return
     const before = r.typing.sentenceIndex
-    for (const key of keys) r.typing.feed(key)
+    const [, start] = r.typing.sentence()
+    const cased = capitalizeSentenceStart(keys, r.typing.buffer, r.typing.target[start])
+    for (const key of cased.keys) r.typing.feed(key)
     r.assisted += stats.assisted
     r.multi += stats.multi
-    r.normalized += stats.normalized
+    r.normalized += stats.normalized + cased.normalized
     this.tick.value++
     if (r.typing.complete) {
       const metrics = this.metrics(r)
